@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>Image Style — Steve Quinlan</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=DM+Sans:opsz,wght@9..40,300..600&family=JetBrains+Mono:wght@400;700&display=swap");
+
+:root {
+  --primary:                 #00464a;
+  --primary-container:       #006064;
+  --on-primary:              #ffffff;
+  --on-primary-muted:        #8fd8dc;
+  --secondary:               #29695b;
+  --secondary-container:     #acedda;
+  --surface:                 #fbfbe2;
+  --surface-container-low:   #f5f5dc;
+  --surface-container:       #eaead1;
+  --surface-container-high:  #e4e4cc;
+  --surface-container-lowest:#ffffff;
+  --on-surface:              #1b1d0e;
+  --on-surface-variant:      #3f4949;
+  --outline:                 #8fd8dc;
+  --outline-variant:         #bec8c9;
+  --font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --font-body:    "DM Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    "JetBrains Mono", "Liberation Mono", "SF Mono", Menlo, monospace;
+  --gradient-noise: radial-gradient(rgb(190,200,201) 2%, rgba(190,200,201,0) 2%);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  font-family: var(--font-body);
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--secondary-container);
+  color: var(--primary);
+}
+
+/* =================== TAB SWITCHER =================== */
+.tabbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 251, 226, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(190,200,201,0.4);
+}
+.tabbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.tabbar .brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+.tabbar nav { display: flex; gap: 4px; }
+.tab-btn {
+  background: transparent;
+  border: 0;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 180ms;
+}
+.tab-btn:hover { background: var(--surface-container-low); }
+.tab-btn.active {
+  background: var(--primary);
+  color: var(--surface);
+}
+.tabbar-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* =================== SHARED PAGE WRAPPER =================== */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 32px 128px;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin: 0 0 24px 0;
+}
+.section-intro {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--on-surface-variant);
+  max-width: 720px;
+  margin: 0;
+}
+
+/* =================== PROMPTS SCREEN =================== */
+.prompts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.prompt-card {
+  background: var(--surface-container-lowest);
+  border-radius: 8px;
+  padding: 32px;
+}
+.prompt-card .pc-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+.prompt-card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+}
+.prompt-card .pc-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--on-surface-variant);
+  margin: 0 0 24px 0;
+}
+
+.prompt-card .preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.prompt-block {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: 6px;
+  padding: 20px 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  position: relative;
+  overflow: hidden;
+}
+.prompt-block::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--gradient-noise);
+  background-size: 4px 4px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.prompt-block .pblock-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--on-primary-muted);
+  margin-bottom: 12px;
+  display: block;
+}
+.prompt-block code {
+  font-family: var(--font-mono);
+  display: block;
+  white-space: pre-wrap;
+  text-wrap: pretty;
+}
+.prompt-block .copy-btn {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.prompt-block .copy-btn:hover { background: rgba(255,255,255,0.14); }
+
+.params {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(190,200,201,0.4);
+}
+.params .row { display: flex; flex-direction: column; gap: 2px; }
+.params .k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.params .v {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--on-surface);
+}
+
+.posttreat {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--surface-container-low);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+.posttreat strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+/* ========== DUOTONE TOOL ========== */
+.duotone-tool {
+  margin-top: 24px;
+  background: var(--surface-container-low);
+  border-radius: 8px;
+  padding: 24px;
+}
+.duotone-tool .dt-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+.duotone-tool .dt-head .lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.dt-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dt-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--on-primary);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.dt-upload input { display: none; }
+
+.dt-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-container);
+  color: var(--secondary);
+  padding: 6px 12px;
+  border: 1px solid rgba(190, 200, 201, 0.6);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms, color 180ms, border-color 180ms;
+}
+.dt-download:hover:not(:disabled) {
+  background: var(--surface-container-high);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.dt-download:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dt-preview {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface-container);
+  margin-bottom: 16px;
+}
+.dt-preview img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.dt-preview .dt-empty {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  text-align: center;
+  padding: 16px;
+}
+.dt-preview .dt-sample {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 35% 40%, #d9c89a 0%, #b89f6b 30%, #6b5a3a 75%, #2d2618 100%);
+}
+
+.dt-preview.is-duotone img,
+.dt-preview.is-duotone .dt-sample {
+  filter: url(#sq-duotone);
+}
+.dt-preview.is-duotone::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--gradient-noise);
+  background-size: 3px 3px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.dt-preview.is-duotone {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+.dt-toggles {
+  display: flex; gap: 8px; margin-bottom: 20px;
+}
+.dt-toggle {
+  flex: 1;
+  background: var(--surface-container);
+  border: 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  cursor: pointer;
+}
+.dt-toggle.active {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.dt-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(190,200,201,0.4);
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.dt-tab {
+  background: transparent;
+  border: 0;
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.dt-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.dt-pane { display: none; }
+.dt-pane.active { display: block; }
+
+.dt-pane .prompt-block {
+  border-radius: 0 0 6px 6px;
+  margin-top: 0;
+}
+.dt-pane .prompt-block code {
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* Caption text input row */
+.dt-caption-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.dt-caption-row .lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.dt-caption-row input {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface-container);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface);
+  border-radius: 4px 4px 0 0;
+  transition: border-color 240ms;
+}
+.dt-caption-row input::placeholder {
+  color: var(--secondary);
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+.dt-caption-row input:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+/* The overlay caption that sits on top of the preview image */
+.dt-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(251, 251, 226, 0.85);
+  padding: 4px 8px;
+  background: rgba(0, 70, 74, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 2px;
+  white-space: nowrap;
+  max-width: calc(100% - 32px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  display: none;
+}
+.dt-caption.show { display: block; }
+
+/* =================== PLATE 01 MOCK PREVIEW =================== */
+.p01 .img {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 30%, rgba(251,251,226,0.55) 0%, transparent 35%),
+    radial-gradient(ellipse at 78% 70%, rgba(251,251,226,0.30) 0%, transparent 40%),
+    linear-gradient(135deg, #00464a 0%, #0a575b 35%, #1d6f6a 65%, #2e8478 100%);
+  filter: contrast(1.08);
+}
+.p01 .subject {
+  position: absolute;
+  left: 12%; bottom: -8%;
+  width: 52%; height: 105%;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(251,251,226,0.35) 0%, transparent 45%),
+    radial-gradient(ellipse at 35% 60%, rgba(0,40,45,0.45) 0%, transparent 55%);
+  filter: blur(18px);
+}
+.p01 .grain {
+  position: absolute; inset: 0;
+  background-image: var(--gradient-noise);
+  background-size: 3px 3px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.p01 .caption {
+  position: absolute;
+  left: 16px; bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(251,251,226,0.85);
+  padding: 4px 8px;
+  background: rgba(0,70,74,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 2px;
+  white-space: nowrap;
+  max-width: calc(100% - 32px);
+}
+
+/* =================== PLATE 06 MOCK PREVIEW =================== */
+.p06 .field {
+  position: absolute; inset: 0;
+  background: var(--surface-container-low);
+  overflow: hidden;
+}
+.p06 .grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,70,74,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,70,74,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.p06 svg.diagram {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+.p06 .glass-card {
+  position: absolute;
+  background: rgba(251, 251, 226, 0.80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(190,200,201,0.45);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  box-shadow: 0 4px 12px -8px rgba(0,0,0,0.18);
+}
+.p06 .glass-card .num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--primary);
+  margin-bottom: 2px;
+  line-height: 1;
+}
+.p06 .pin-mint {
+  position: absolute;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--secondary-container);
+  border: 2px solid var(--primary);
+}
+.p06 .corner-id {
+  position: absolute;
+  bottom: 14px; left: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+/* =================== USAGE FOOTER =================== */
+.usage-section {
+  margin-top: 96px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(190,200,201,0.4);
+}
+.usage-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin: 0 0 24px 0;
+}
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.usage-card {
+  background: var(--surface-container-lowest);
+  padding: 32px;
+  border-radius: 8px;
+}
+.usage-card .ucard-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+.usage-card h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--primary);
+  margin: 0 0 16px 0;
+}
+.usage-card ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--on-surface-variant);
+}
+</style>
+</head>
+<body>
+
+<!-- ============ DUOTONE FILTER (inline SVG, namespace-correct) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="sq-duotone" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0
+                                         0.299 0.587 0.114 0 0
+                                         0.299 0.587 0.114 0 0
+                                         0     0     0     1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0     0.984"/>
+      <feFuncG type="table" tableValues="0.275 0.984"/>
+      <feFuncB type="table" tableValues="0.290 0.886"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<!-- ============ TAB BAR ============ -->
+<header class="tabbar">
+  <div class="tabbar-inner">
+    <div class="brand">Steve Quinlan</div>
+    <nav>
+      <button class="tab-btn active" data-screen="prompts">01 Prompts</button>
+      <button class="tab-btn" data-screen="blog">02 Blog Post</button>
+      <button class="tab-btn" data-screen="content">03 Content Areas</button>
+    </nav>
+    <div class="tabbar-meta">Image System // V2</div>
+  </div>
+</header>
+
+<!-- =================================================== -->
+<!-- SCREEN 01 — PROMPTS                                  -->
+<!-- =================================================== -->
+<main class="screen active" id="screen-prompts">
+<div class="page">
+
+  <div class="section-eyebrow">DIGITAL MONOGRAPH 03 // PROMPT RECIPES</div>
+  <h1 class="section-title">Two prompts.<br>One image system.</h1>
+  <p class="section-intro">
+    Two prompt recipes — Duotone Documentary for blog heroes and content photography, Glass Diagram for methodology illustrations. Each is a base prompt plus per-post variables, designed to produce consistent results across any AI image tool (Midjourney, DALL·E 3, Imagen, Stable Diffusion).
+  </p>
+
+  <div class="prompts-grid">
+
+    <!-- ========== PROMPT 01 — Duotone ========== -->
+    <article class="prompt-card">
+      <div class="pc-num">PLATE_01</div>
+      <h3>Duotone Documentary</h3>
+      <p class="pc-sub">Real subjects, flattened to deep teal and paper cream. The brand-lock photographic style.</p>
+
+      <div class="preview p01">
+        <div class="img"></div>
+        <div class="subject"></div>
+        <div class="grain"></div>
+        <div class="caption">PLATE_01 // SAMPLE</div>
+      </div>
+
+      <div class="prompt-block">
+        <button class="copy-btn" data-target="prompt-01">COPY</button>
+        <span class="pblock-label">BASE PROMPT</span>
+<code id="prompt-01">Editorial documentary photograph of {SUBJECT}, shot
+in soft natural light from a quiet, considered angle.
+Composition is calm and uncluttered, with deliberate
+negative space. Subject is the focus; background is
+out-of-focus and tonally simple. Mood is intentional,
+intellectual, slightly austere — like a feature in a
+serious business monograph.
+
+Style: high-end editorial photography, monograph
+plate, restrained, premium. No props that look
+"AI-rendered". No tech-cliché imagery (no glowing
+brains, no abstract data swirls, no robots).
+
+Format: 16:9, 4K, sharp on subject, gentle film grain.
+
+— {SUBJECT}: a person at a desk reviewing printed
+  reports beside a laptop, hands visible on the page,
+  face partially out of frame.</code>
+      </div>
+
+      <div class="duotone-tool">
+        <div class="dt-head">
+          <span class="lbl">LIVE PREVIEW · DROP YOUR IMAGE IN</span>
+          <div class="dt-actions">
+            <label class="dt-upload">
+              UPLOAD IMAGE
+              <input type="file" id="dt-file" accept="image/*">
+            </label>
+            <button class="dt-download" id="dt-download" type="button" disabled>DOWNLOAD</button>
+          </div>
+        </div>
+
+        <div class="dt-caption-row">
+          <span class="lbl">Caption</span>
+          <input type="text" id="dt-caption-input" placeholder="e.g. PLATE_01 // SAMPLE" maxlength="80" autocomplete="off">
+        </div>
+
+        <div class="dt-preview is-duotone" id="dt-preview">
+          <div class="dt-sample"></div>
+          <div class="dt-empty" id="dt-empty">No image uploaded — using sample gradient. Upload a photo to see the effect on real photography.</div>
+          <div class="dt-caption" id="dt-caption"></div>
+        </div>
+
+        <div class="dt-toggles">
+          <button class="dt-toggle" data-state="off">ORIGINAL</button>
+          <button class="dt-toggle active" data-state="on">DUOTONE APPLIED</button>
+        </div>
+
+        <div class="dt-tabs">
+          <button class="dt-tab active" data-pane="css">CSS · Easiest</button>
+          <button class="dt-tab" data-pane="svg">SVG Filter · Best Quality</button>
+          <button class="dt-tab" data-pane="canvas">Canvas / JS · Export</button>
+          <button class="dt-tab" data-pane="ps">Photoshop · Manual</button>
+        </div>
+
+        <!-- CSS pane -->
+        <div class="dt-pane active" data-pane="css">
+          <div class="prompt-block">
+            <button class="copy-btn" data-target="code-css">COPY</button>
+            <span class="pblock-label">DROP-IN CSS — applies the brand duotone to any &lt;img&gt;</span>
+<code id="code-css">/* 1. Add the SVG filter ONCE, anywhere in your HTML
+   (it's an invisible &lt;svg&gt; that defines the colour map) */
+
+&lt;svg width="0" height="0" style="position:absolute" aria-hidden="true"&gt;
+  &lt;filter id="sq-duotone"&gt;
+    &lt;feColorMatrix type="matrix" values="
+      0.299 0.587 0.114 0 0
+      0.299 0.587 0.114 0 0
+      0.299 0.587 0.114 0 0
+      0     0     0     1 0"/&gt;
+    &lt;feComponentTransfer&gt;
+      &lt;feFuncR tableValues="0    0.984"/&gt;  &lt;!-- 0x00 → 0xFB --&gt;
+      &lt;feFuncG tableValues="0.275 0.984"/&gt; &lt;!-- 0x46 → 0xFB --&gt;
+      &lt;feFuncB tableValues="0.290 0.886"/&gt; &lt;!-- 0x4A → 0xE2 --&gt;
+    &lt;/feComponentTransfer&gt;
+  &lt;/filter&gt;
+&lt;/svg&gt;
+
+/* 2. Apply it as a CSS class to any image */
+
+.sq-duotone {
+  filter: url(#sq-duotone);
+}
+
+/* 3. Add the framing — hard portrait shadow + film grain */
+
+.sq-plate {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.sq-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url(#sq-duotone);
+}
+.sq-plate::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgb(190,200,201) 2%,
+                                    rgba(190,200,201,0) 2%);
+  background-size: 3px 3px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* USAGE
+&lt;div class="sq-plate"&gt;&lt;img src="hero.jpg" alt="..."&gt;&lt;/div&gt;
+*/</code>
+          </div>
+        </div>
+
+        <!-- SVG pane -->
+        <div class="dt-pane" data-pane="svg">
+          <div class="prompt-block">
+            <button class="copy-btn" data-target="code-svg">COPY</button>
+            <span class="pblock-label">SVG FILTER ONLY — paste once, reference by id</span>
+<code id="code-svg">&lt;svg xmlns="http://www.w3.org/2000/svg" width="0" height="0"
+     style="position:absolute" aria-hidden="true"&gt;
+  &lt;defs&gt;
+    &lt;filter id="sq-duotone" color-interpolation-filters="sRGB"&gt;
+      &lt;!-- Step 1: convert to luminance (greyscale) --&gt;
+      &lt;feColorMatrix type="matrix" values="
+        0.299 0.587 0.114 0 0
+        0.299 0.587 0.114 0 0
+        0.299 0.587 0.114 0 0
+        0     0     0     1 0"/&gt;
+
+      &lt;!-- Step 2: remap luminance to the brand gradient
+           shadow  = #00464a (rgb 0, 70, 74)
+           highlight = #fbfbe2 (rgb 251, 251, 226) --&gt;
+      &lt;feComponentTransfer&gt;
+        &lt;feFuncR tableValues="0     0.984"/&gt;
+        &lt;feFuncG tableValues="0.275 0.984"/&gt;
+        &lt;feFuncB tableValues="0.290 0.886"/&gt;
+      &lt;/feComponentTransfer&gt;
+    &lt;/filter&gt;
+  &lt;/defs&gt;
+&lt;/svg&gt;
+
+&lt;!-- Reference from anywhere: --&gt;
+&lt;img src="hero.jpg" style="filter: url(#sq-duotone)"&gt;</code>
+          </div>
+        </div>
+
+        <!-- Canvas / JS pane -->
+        <div class="dt-pane" data-pane="canvas">
+          <div class="prompt-block">
+            <button class="copy-btn" data-target="code-canvas">COPY</button>
+            <span class="pblock-label">CANVAS · BAKE THE EFFECT INTO A FILE (for export / OG cards)</span>
+<code id="code-canvas">// Apply the Steve Quinlan duotone to an image and return a Blob.
+// Use when you need a real PNG/JPEG file (CMS upload, OG card, email).
+
+async function applyDuotone(file, {
+  shadow    = [0,   70,  74],   // #00464a
+  highlight = [251, 251, 226],  // #fbfbe2
+} = {}) {
+  const img = await new Promise((res, rej) =&gt; {
+    const i = new Image();
+    i.onload  = () =&gt; res(i);
+    i.onerror = rej;
+    i.src = URL.createObjectURL(file);
+  });
+
+  const canvas = document.createElement('canvas');
+  canvas.width  = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const px   = data.data;
+
+  for (let i = 0; i &lt; px.length; i += 4) {
+    // luminance (Rec. 601)
+    const lum = (px[i] * 0.299 + px[i+1] * 0.587 + px[i+2] * 0.114) / 255;
+    // mix shadow → highlight by luminance
+    px[i  ] = shadow[0] + (highlight[0] - shadow[0]) * lum;
+    px[i+1] = shadow[1] + (highlight[1] - shadow[1]) * lum;
+    px[i+2] = shadow[2] + (highlight[2] - shadow[2]) * lum;
+    // alpha untouched
+  }
+  ctx.putImageData(data, 0, 0);
+
+  return new Promise(res =&gt; canvas.toBlob(res, 'image/png'));
+}
+
+// Example
+// const blob = await applyDuotone(fileInput.files[0]);
+// document.querySelector('img').src = URL.createObjectURL(blob);</code>
+          </div>
+        </div>
+
+        <!-- Photoshop pane -->
+        <div class="dt-pane" data-pane="ps">
+          <div class="prompt-block" style="background: var(--surface-container); color: var(--on-surface);">
+            <button class="copy-btn" data-target="code-ps" style="background: rgba(0,70,74,0.08); border-color: rgba(0,70,74,0.2); color: var(--primary);">COPY</button>
+            <span class="pblock-label" style="color: var(--secondary);">PHOTOSHOP · MANUAL STEPS</span>
+<code id="code-ps" style="color: var(--on-surface);">1. Open the image. Convert to Smart Object so it stays
+   non-destructive (Layer → Smart Objects → Convert).
+
+2. Add a Black &amp; White adjustment layer (Layer → New
+   Adjustment Layer → Black &amp; White). Default settings
+   are fine — this gives a clean luminance map.
+
+3. Add a Gradient Map adjustment layer above it (Layer
+   → New Adjustment Layer → Gradient Map).
+
+4. Click the gradient strip and build a 2-stop gradient:
+     • Left stop  (shadow)    — #00464a
+     • Right stop (highlight) — #fbfbe2
+   Save as a preset named "SQ Duotone" for re-use.
+
+5. Optional: add a Noise layer above (Filter → Noise →
+   Add Noise, 4–8% gaussian, monochromatic) on a 50%
+   grey layer set to Overlay blend mode at ~30%.
+
+6. Export as PNG or JPEG @ 2400px on the long edge.
+   Apply the card frame + portrait shadow in code, not
+   in Photoshop — keeps the source asset clean.</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="posttreat" style="margin-top: 16px;">
+        <strong>NOTES</strong>
+        All four methods produce the same colour map: shadows pinned to <code style="color: var(--primary);">#00464a</code>, highlights pinned to <code style="color: var(--primary);">#fbfbe2</code>. CSS/SVG is the right default for a Next.js / WordPress site (no asset processing). Canvas is for when you need a real file (Open Graph cards, email). Photoshop is for art-directed one-offs.
+      </div>
+
+      <div class="params">
+        <div class="row"><span class="k">Subjects</span><span class="v">People at work, hands, workspaces, ops floors, printed material</span></div>
+        <div class="row"><span class="k">Avoid</span><span class="v">Tech-cliché, glowing screens, abstract data, robots</span></div>
+        <div class="row"><span class="k">Aspect</span><span class="v">16:9 hero · 1:1 inline · 4:5 portrait card</span></div>
+        <div class="row"><span class="k">Final colours</span><span class="v">#00464a → #fbfbe2 duotone</span></div>
+      </div>
+    </article>
+
+    <!-- ========== PROMPT 02 — Glass Diagram ========== -->
+    <article class="prompt-card">
+      <div class="pc-num">PLATE_06</div>
+      <h3>Glass Diagram</h3>
+      <p class="pc-sub">Schematic process maps on cream grid. For methodology, frameworks, and "how I work" content.</p>
+
+      <div class="preview p06">
+        <div class="field">
+          <div class="grid"></div>
+          <svg class="diagram" viewBox="0 0 400 225" preserveAspectRatio="none">
+            <defs>
+              <marker id="arrow-pp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#00464a"/>
+              </marker>
+            </defs>
+            <path d="M 110 75 C 160 75, 200 75, 250 75" fill="none" stroke="#00464a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow-pp)"/>
+            <path d="M 300 100 C 300 140, 230 165, 200 165" fill="none" stroke="#00464a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow-pp)"/>
+            <path d="M 140 165 C 90 165, 70 130, 70 95" fill="none" stroke="#00464a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow-pp)"/>
+          </svg>
+          <div class="glass-card" style="left: 7%; top: 28%; width: 22%;"><span class="num">01</span>HYPOTHESIS</div>
+          <div class="glass-card" style="left: 60%; top: 28%; width: 22%;"><span class="num">02</span>EVIDENCE</div>
+          <div class="glass-card" style="left: 33%; top: 65%; width: 22%;"><span class="num">03</span>SYSTEM</div>
+          <div class="pin-mint" style="left: 47%; top: 50%;"></div>
+          <div class="corner-id">FRAMEWORK_MAP</div>
+        </div>
+      </div>
+
+      <div class="prompt-block">
+        <button class="copy-btn" data-target="prompt-06">COPY</button>
+        <span class="pblock-label">BASE PROMPT (for an AI illustration tool)</span>
+<code id="prompt-06">Minimal technical schematic illustration on a warm
+cream paper background (#f5f5dc) with a faint 40px
+grid. Composition shows {N} labelled nodes connected
+by dashed teal (#00464a) curved arrows. Each node is
+a small frosted-glass rectangle with a thin grey
+border, containing a large italic serif numeral
+(01, 02, 03) and a short uppercase mono label.
+
+Add 1–2 small accent dots: one mint (#acedda) ringed
+in teal, one solid teal. Top-right and bottom-left
+corners carry tiny mono-spaced metadata captions in
+mossy teal (#29695b).
+
+Style: editorial monograph diagram, lab notebook,
+restrained, intellectual. No 3D, no shading, no
+gradients, no decoration beyond what is described.
+
+Format: 16:9, vector-clean.
+
+— {N} = 4
+— Node labels: HYPOTHESIS / EXPERIMENT / EVIDENCE /
+  SYSTEM
+— Top-right caption: PLATE_06 // FRAMEWORK_MAP
+— Bottom-left caption: EXPERIMENTATION_LOOP_V2</code>
+      </div>
+
+      <div class="posttreat">
+        <strong>POST-TREATMENT</strong>
+        For best results, generate as SVG (or hand-build in code) — AI image models occasionally garble small text. The diagram is simple enough that recreating in SVG using the same recipe (cream grid + glass cards + dashed arrows + mint accent) gives pixel-perfect output every time and stays on-brand.
+      </div>
+
+      <div class="params">
+        <div class="row"><span class="k">Used for</span><span class="v">Methodology, frameworks, process explainers</span></div>
+        <div class="row"><span class="k">Nodes</span><span class="v">3–5 per diagram (more reads as cluttered)</span></div>
+        <div class="row"><span class="k">Aspect</span><span class="v">16:9 hero · 1:1 inline</span></div>
+        <div class="row"><span class="k">Render</span><span class="v">SVG preferred over raster</span></div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- usage rules -->
+  <section class="usage-section">
+    <div class="section-eyebrow">USAGE</div>
+    <h2 class="usage-title">When to use which</h2>
+    <div class="usage-grid">
+      <div class="usage-card">
+        <div class="ucard-eyebrow">PLATE_01 · DUOTONE</div>
+        <h4>Use for blog heroes &amp; content photography</h4>
+        <ul>
+          <li>— Top-of-blog hero images</li>
+          <li>— Case study leads</li>
+          <li>— Author / about pages</li>
+          <li>— Open Graph social cards</li>
+          <li>— Any post about <em>a person, a workplace, or real-world work</em></li>
+        </ul>
+      </div>
+      <div class="usage-card">
+        <div class="ucard-eyebrow">PLATE_06 · DIAGRAM</div>
+        <h4>Use inline, alongside written explanations</h4>
+        <ul>
+          <li>— Methodology section illustrations</li>
+          <li>— Framework / process explainers</li>
+          <li>— Pillar overviews on the homepage</li>
+          <li>— Mid-article figures inside Plate 01 posts</li>
+          <li>— Anything that wants to <em>show structure, not subject</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<script>
+  // Tab switcher (top-level screens). Only #screen-prompts exists; clicks on
+  // 02/03 still toggle the visual active state but stay on prompts.
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.screen;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      const screen = document.getElementById('screen-' + target);
+      if (screen) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s === screen));
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+
+  // Copy buttons — copy the target element's text to clipboard with feedback.
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      navigator.clipboard.writeText(target.innerText).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'COPIED';
+        setTimeout(() => { btn.textContent = orig; }, 1400);
+      }).catch(() => {});
+    });
+  });
+
+  // Duotone tool — code tab switcher
+  document.querySelectorAll('.dt-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const name = tab.dataset.pane;
+      document.querySelectorAll('.dt-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.dt-pane').forEach(p => p.classList.toggle('active', p.dataset.pane === name));
+    });
+  });
+
+  // ORIGINAL / DUOTONE APPLIED toggle
+  const preview = document.getElementById('dt-preview');
+  document.querySelectorAll('.dt-toggle').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.dt-toggle').forEach(b => b.classList.toggle('active', b === t));
+      preview.classList.toggle('is-duotone', t.dataset.state === 'on');
+    });
+  });
+
+  // File upload — replace sample/empty with a real <img>
+  const fileInput = document.getElementById('dt-file');
+  const downloadBtn = document.getElementById('dt-download');
+  let uploadedImageUrl = null;
+
+  fileInput.addEventListener('change', e => {
+    const f = e.target.files[0];
+    if (!f) return;
+    if (uploadedImageUrl) URL.revokeObjectURL(uploadedImageUrl);
+    uploadedImageUrl = URL.createObjectURL(f);
+    preview.querySelectorAll('.dt-sample, .dt-empty, img').forEach(n => n.remove());
+    const img = document.createElement('img');
+    img.src = uploadedImageUrl;
+    img.alt = '';
+    preview.insertBefore(img, preview.firstChild);
+    downloadBtn.disabled = false;
+  });
+
+  // Caption overlay — type to add a caption pill onto the preview
+  const captionInput = document.getElementById('dt-caption-input');
+  const caption = document.getElementById('dt-caption');
+  captionInput.addEventListener('input', e => {
+    const text = e.target.value.trim();
+    caption.textContent = text;
+    caption.classList.toggle('show', text.length > 0);
+  });
+
+  // Download — bake current state (duotone + grain + caption) into a PNG
+  function applyGrainToCanvas(ctx, w, h) {
+    // Mirrors .dt-preview.is-duotone::after on screen:
+    //   background: radial-gradient at 3px tiles, opacity 0.18, overlay blend.
+    // Scale the tile so density matches the on-screen preview (~200 tiles
+    // across the smaller dimension), otherwise the grain disappears on big files.
+    const tileSize = Math.max(3, Math.round(Math.min(w, h) / 200));
+    const dotSize = Math.max(1, Math.round(tileSize / 3));
+    const offset = Math.floor((tileSize - dotSize) / 2);
+
+    const tile = document.createElement('canvas');
+    tile.width = tileSize;
+    tile.height = tileSize;
+    const tctx = tile.getContext('2d');
+    tctx.fillStyle = 'rgb(190, 200, 201)';
+    tctx.fillRect(offset, offset, dotSize, dotSize);
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.globalAlpha = 0.18;
+    ctx.fillStyle = ctx.createPattern(tile, 'repeat');
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+
+  function drawCaptionOnCanvas(ctx, text, w, h) {
+    const upper = text.toUpperCase();
+    const baseSize = Math.max(14, Math.round(h * 0.018));
+    const padX = Math.round(baseSize * 0.85);
+    const padY = Math.round(baseSize * 0.45);
+    const margin = Math.round(baseSize * 1.4);
+    const radius = Math.max(2, Math.round(baseSize * 0.18));
+
+    ctx.save();
+    ctx.font = `400 ${baseSize}px "JetBrains Mono", "SF Mono", Menlo, monospace`;
+    if ('letterSpacing' in ctx) ctx.letterSpacing = `${baseSize * 0.14}px`;
+    ctx.textBaseline = 'middle';
+
+    const textW = ctx.measureText(upper).width;
+    const pillW = Math.min(textW + padX * 2, w - margin * 2);
+    const pillH = baseSize + padY * 2;
+    const x = margin;
+    const y = h - margin - pillH;
+
+    ctx.fillStyle = 'rgba(0, 70, 74, 0.55)';
+    if (typeof ctx.roundRect === 'function') {
+      ctx.beginPath();
+      ctx.roundRect(x, y, pillW, pillH, radius);
+      ctx.fill();
+    } else {
+      ctx.fillRect(x, y, pillW, pillH);
+    }
+
+    ctx.fillStyle = 'rgba(251, 251, 226, 0.85)';
+    ctx.fillText(upper, x + padX, y + pillH / 2);
+    ctx.restore();
+  }
+
+  downloadBtn.addEventListener('click', async () => {
+    if (!uploadedImageUrl) return;
+    downloadBtn.disabled = true;
+    const orig = downloadBtn.textContent;
+    downloadBtn.textContent = 'WORKING…';
+
+    try {
+      const img = await new Promise((res, rej) => {
+        const i = new Image();
+        i.onload = () => res(i);
+        i.onerror = rej;
+        i.src = uploadedImageUrl;
+      });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      // Apply duotone (Rec. 601 luminance → shadow#00464a / highlight#fbfbe2)
+      // only when the toggle is on. Same math as the SVG filter and the
+      // Canvas/JS code sample shown in the tool.
+      if (preview.classList.contains('is-duotone')) {
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const px = data.data;
+        const sR = 0,   sG = 70,  sB = 74;
+        const hR = 251, hG = 251, hB = 226;
+        for (let i = 0; i < px.length; i += 4) {
+          const lum = (px[i] * 0.299 + px[i+1] * 0.587 + px[i+2] * 0.114) / 255;
+          px[i]   = sR + (hR - sR) * lum;
+          px[i+1] = sG + (hG - sG) * lum;
+          px[i+2] = sB + (hB - sB) * lum;
+        }
+        ctx.putImageData(data, 0, 0);
+        applyGrainToCanvas(ctx, canvas.width, canvas.height);
+      }
+
+      const captionText = caption.textContent.trim();
+      if (captionText && caption.classList.contains('show')) {
+        drawCaptionOnCanvas(ctx, captionText, canvas.width, canvas.height);
+      }
+
+      const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+      if (!blob) return;
+      const dlUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const variant = preview.classList.contains('is-duotone') ? 'duotone' : 'original';
+      a.href = dlUrl;
+      a.download = `sq-${variant}-${Date.now()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(dlUrl), 1000);
+    } finally {
+      downloadBtn.textContent = orig;
+      downloadBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
