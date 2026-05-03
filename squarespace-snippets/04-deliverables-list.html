@@ -1,0 +1,75 @@
+<!--
+  AI Visibility Scorecard — Deliverables list
+  ============================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  in the left column of Section 05 (What you get), below the
+  heading and lead paragraph.
+
+  The eyebrow ("SECTION 05 // ARTEFACT"), the "What you get."
+  heading, the lead paragraph above the list, and the italic
+  footnote paragraph below the list should all be built using
+  Squarespace's native blocks — they are plain typography.
+
+  This snippet handles only the DEL_01–DEL_09 list, which needs
+  the mono label column, hairline dividers and bold deliverable
+  names that Squarespace blocks cannot produce on their own.
+
+  No JavaScript. All CSS scoped to .ai-vis-deliv so it cannot
+  leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-deliv {
+  --avl-primary: #00464a;
+  --avl-secondary: #29695b;
+  --avl-on-surface: #1b1d0e;
+  --avl-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avl-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-deliv *, .ai-vis-deliv *::before, .ai-vis-deliv *::after { box-sizing: border-box; }
+
+.ai-vis-deliv__list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+}
+.ai-vis-deliv__list li {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 16px; padding: 18px 0;
+  border-top: 1px solid rgba(0,70,74,0.10);
+  align-items: start;
+}
+.ai-vis-deliv__list li:last-child {
+  border-bottom: 1px solid rgba(0,70,74,0.10);
+}
+.ai-vis-deliv__list li > span:first-child {
+  font-family: var(--avl-font-mono);
+  font-size: 11px; letter-spacing: 0.08em;
+  color: var(--avl-secondary);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.ai-vis-deliv__list li > span:last-child {
+  font-family: var(--avl-font-body);
+  font-size: 16px; line-height: 26px;
+  color: var(--avl-on-surface);
+}
+.ai-vis-deliv__list li b {
+  font-weight: 500;
+  color: var(--avl-primary);
+}
+</style>
+
+<div class="ai-vis-deliv">
+  <ul class="ai-vis-deliv__list">
+    <li><span>DEL_01</span><span><b>Executive summary</b> with your headline position and top priorities.</span></li>
+    <li><span>DEL_02</span><span><b>Five-dimension score</b> across Findability, Understandability, Trustworthiness, Agent-Readiness and Citability.</span></li>
+    <li><span>DEL_03</span><span><b>Live AI-engine test results</b> from ChatGPT, Perplexity and Gemini.</span></li>
+    <li><span>DEL_04</span><span><b>Competitor comparison</b> against three named competitors.</span></li>
+    <li><span>DEL_05</span><span><b>Page review</b> of 10–20 key pages from your website.</span></li>
+    <li><span>DEL_06</span><span><b>Page-by-page findings</b> showing where the strongest and weakest signals sit.</span></li>
+    <li><span>DEL_07</span><span><b>Prioritised action list</b> ranked by value, effort, confidence and urgency.</span></li>
+    <li><span>DEL_08</span><span><b>90-day priority view</b> so you know what to fix first, what to defer, and what to monitor.</span></li>
+    <li><span>DEL_09</span><span><b>Delivery call</b> to walk through the findings and decide the next step.</span></li>
+  </ul>
+</div>

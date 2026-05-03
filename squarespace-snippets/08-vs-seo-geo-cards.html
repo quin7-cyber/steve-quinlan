@@ -1,0 +1,119 @@
+<!--
+  AI Visibility Scorecard — vs SEO / GEO three-card comparison
+  =============================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width below the "How this differs from SEO or GEO." heading
+  in Section 09.
+
+  This snippet is SELF-CONTAINED with its own dark teal background
+  and padding, because the cards' white-translucent fills and white
+  text only read correctly on a dark surface. You can drop it into
+  any Squarespace section regardless of the section background.
+
+  If you want the dark teal to extend to the full page edges
+  (matching the design intent), set the surrounding Squarespace
+  section's background colour to #00464a so the snippet's wrapper
+  blends seamlessly into it.
+
+  The section heading above ("SECTION 08 // POSITIONING" eyebrow,
+  the "How this differs from SEO or GEO." headline) and the pull
+  quote and copy below the three cards should be built using
+  Squarespace's native blocks. If you want the headline to read
+  white-on-dark, set its colour in Squarespace's text-style picker.
+
+  Layout collapses to a single column under 1080px.
+
+  No JavaScript. All CSS scoped to .ai-vis-vs so it cannot leak
+  into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-vs {
+  --avv-primary: #00464a;
+  --avv-secondary-container: #acedda;
+  --avv-on-primary: #ffffff;
+  --avv-on-primary-muted: #8fd8dc;
+  --avv-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avv-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  background: var(--avv-primary);
+  border-radius: 8px;
+  padding: 64px 32px;
+}
+.ai-vis-vs *, .ai-vis-vs *::before, .ai-vis-vs *::after { box-sizing: border-box; }
+.ai-vis-vs h3 { margin: 0; }
+.ai-vis-vs p { margin: 0; }
+
+.ai-vis-vs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ai-vis-vs__card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 8px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.ai-vis-vs__card--active {
+  background: rgba(172,237,218,0.10);
+  border: 1px solid rgba(172,237,218,0.30);
+}
+
+.ai-vis-vs__card-tag {
+  font-family: var(--avv-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avv-on-primary-muted);
+  text-transform: uppercase;
+}
+.ai-vis-vs__card-tag--active { color: var(--avv-secondary-container); }
+
+.ai-vis-vs__card-name {
+  font-family: var(--avv-font-display);
+  font-weight: 400; font-size: 32px; line-height: 36px;
+  color: var(--avv-on-primary);
+  letter-spacing: -0.01em;
+}
+
+.ai-vis-vs__card-q {
+  font-family: var(--avv-font-display);
+  font-weight: 300; font-style: italic;
+  font-size: 17px; line-height: 26px;
+  color: var(--avv-on-primary-muted);
+}
+.ai-vis-vs__card--active .ai-vis-vs__card-q {
+  color: var(--avv-secondary-container);
+}
+
+@media (max-width: 1080px) {
+  .ai-vis-vs__grid { grid-template-columns: 1fr; }
+  .ai-vis-vs { padding: 48px 24px; }
+}
+</style>
+
+<div class="ai-vis-vs">
+  <div class="ai-vis-vs__grid">
+
+    <div class="ai-vis-vs__card">
+      <span class="ai-vis-vs__card-tag">DISCIPLINE_01</span>
+      <h3 class="ai-vis-vs__card-name">SEO</h3>
+      <p class="ai-vis-vs__card-q">"Can your pages rank?"</p>
+    </div>
+
+    <div class="ai-vis-vs__card">
+      <span class="ai-vis-vs__card-tag">DISCIPLINE_02</span>
+      <h3 class="ai-vis-vs__card-name">GEO</h3>
+      <p class="ai-vis-vs__card-q">"Can AI systems extract, summarise and cite your content?"</p>
+    </div>
+
+    <div class="ai-vis-vs__card ai-vis-vs__card--active">
+      <span class="ai-vis-vs__card-tag ai-vis-vs__card-tag--active">DISCIPLINE_03 // THIS</span>
+      <h3 class="ai-vis-vs__card-name">AI Visibility Scorecard</h3>
+      <p class="ai-vis-vs__card-q">"When a real buyer uses AI to understand the market, do you show up accurately, credibly and usefully beside the competitors they are also considering?"</p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<!--
+  AI Visibility Scorecard — A good fit if / Not the right fit if
+  ===============================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  in the right column of Section 07 (Who it is for).
+
+  The left column (eyebrow "SECTION 07 // FIT", the "Who it is for."
+  heading, and the introductory paragraph below it) should be built
+  using Squarespace's native blocks — they are plain typography,
+  no custom layout needed.
+
+  This snippet handles only the right-column comparison: two stacked
+  lists with mono column headers, a hairline divider under each,
+  and the filled / hollow dot bullets that signal "good fit" vs
+  "not the right fit".
+
+  No JavaScript. All CSS scoped to .ai-vis-fit so it cannot leak
+  into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-fit {
+  --avw-primary: #00464a;
+  --avw-secondary: #29695b;
+  --avw-secondary-container: #acedda;
+  --avw-surface-container-high: #e4e4cc;
+  --avw-on-surface: #1b1d0e;
+  --avw-on-surface-variant: #3f4949;
+  --avw-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avw-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-fit *, .ai-vis-fit *::before, .ai-vis-fit *::after { box-sizing: border-box; }
+
+.ai-vis-fit__columns {
+  display: flex; flex-direction: column; gap: 48px;
+}
+
+.ai-vis-fit__col-tag {
+  font-family: var(--avw-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avw-secondary);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0,70,74,0.20);
+}
+
+.ai-vis-fit__list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.ai-vis-fit__list li {
+  display: grid; grid-template-columns: 24px 1fr;
+  gap: 16px;
+  font-family: var(--avw-font-body);
+  font-size: 16px; line-height: 26px;
+  color: var(--avw-on-surface);
+}
+.ai-vis-fit__list--no li {
+  color: var(--avw-on-surface-variant);
+  opacity: 0.78;
+}
+
+.ai-vis-fit__bullet {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background: var(--avw-secondary-container);
+  position: relative;
+}
+.ai-vis-fit__bullet::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: var(--avw-primary);
+  border-radius: 50%;
+}
+.ai-vis-fit__bullet--no {
+  background: var(--avw-surface-container-high);
+}
+.ai-vis-fit__bullet--no::after {
+  background: transparent;
+  border: 1px solid var(--avw-on-surface-variant);
+  border-radius: 50%;
+  inset: 4px;
+}
+</style>
+
+<div class="ai-vis-fit">
+  <div class="ai-vis-fit__columns">
+
+    <div>
+      <div class="ai-vis-fit__col-tag">A good fit if</div>
+      <ul class="ai-vis-fit__list">
+        <li><span class="ai-vis-fit__bullet"></span><span>Your website already plays a role in how customers find and assess you.</span></li>
+        <li><span class="ai-vis-fit__bullet"></span><span>You sell a considered service, not a simple commodity.</span></li>
+        <li><span class="ai-vis-fit__bullet"></span><span>Your buyers need to understand your expertise before they act.</span></li>
+        <li><span class="ai-vis-fit__bullet"></span><span>You are already investing in marketing, content, SEO, paid media, agencies or website improvements.</span></li>
+        <li><span class="ai-vis-fit__bullet"></span><span>Enquiries, traffic or lead quality feel less predictable than they used to.</span></li>
+        <li><span class="ai-vis-fit__bullet"></span><span>You want clear priorities before spending more on content, SEO, AI tools or a website rebuild.</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="ai-vis-fit__col-tag">Not the right fit if</div>
+      <ul class="ai-vis-fit__list ai-vis-fit__list--no">
+        <li><span class="ai-vis-fit__bullet ai-vis-fit__bullet--no"></span><span>You have very little website or content to review.</span></li>
+        <li><span class="ai-vis-fit__bullet ai-vis-fit__bullet--no"></span><span>You want general AI training, not a diagnostic.</span></li>
+        <li><span class="ai-vis-fit__bullet ai-vis-fit__bullet--no"></span><span>You need implementation work inside the audit itself.</span></li>
+        <li><span class="ai-vis-fit__bullet ai-vis-fit__bullet--no"></span><span>You already have a mature internal AI and digital strategy team.</span></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

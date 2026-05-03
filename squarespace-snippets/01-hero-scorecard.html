@@ -1,0 +1,202 @@
+<!--
+  AI Visibility Scorecard — Hero artefact preview
+  ================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  in the right column of the hero section.
+
+  No JavaScript. All CSS scoped to .ai-vis-scorecard so it cannot
+  leak into the rest of the site.
+
+  To customise the displayed scores, edit the five score-row blocks
+  below. Each has two values that must match: the inline width %
+  and the displayed number.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,300..400&family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-scorecard {
+  --avs-primary: #00464a;
+  --avs-secondary: #29695b;
+  --avs-surface-container: #eaead1;
+  --avs-surface-container-low: #f5f5dc;
+  --avs-surface-container-lowest: #ffffff;
+  --avs-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avs-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avs-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  max-width: 432px;
+  margin: 0 auto;
+  font-family: var(--avs-font-body);
+}
+.ai-vis-scorecard *, .ai-vis-scorecard *::before, .ai-vis-scorecard *::after { box-sizing: border-box; }
+.ai-vis-scorecard p { margin: 0; }
+
+.ai-vis-scorecard__artefact {
+  position: relative;
+  background: var(--avs-surface-container-lowest);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.18),
+              0 8px 16px -8px rgba(0,0,0,0.10);
+  display: flex; flex-direction: column; gap: 24px;
+  aspect-ratio: 1 / 1.32;
+}
+.ai-vis-scorecard__head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(0,70,74,0.18);
+}
+.ai-vis-scorecard__brand {
+  font-family: var(--avs-font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--avs-primary);
+  letter-spacing: -0.02em;
+}
+.ai-vis-scorecard__client {
+  font-family: var(--avs-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avs-secondary);
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+.ai-vis-scorecard__doc-id {
+  font-family: var(--avs-font-mono);
+  font-size: 10px; letter-spacing: 0.08em;
+  color: var(--avs-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-scorecard__eyebrow {
+  font-family: var(--avs-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avs-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ai-vis-scorecard__title {
+  font-family: var(--avs-font-display);
+  font-weight: 400;
+  font-size: 26px; line-height: 30px;
+  color: var(--avs-primary);
+  letter-spacing: -0.015em;
+}
+.ai-vis-scorecard__title em { font-style: italic; font-weight: 300; }
+.ai-vis-scorecard__scores {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-top: 4px;
+}
+.ai-vis-scorecard__score-row {
+  display: grid; grid-template-columns: 110px 1fr 32px;
+  align-items: center; gap: 12px;
+}
+.ai-vis-scorecard__score-label {
+  font-family: var(--avs-font-body);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--avs-primary);
+}
+.ai-vis-scorecard__score-bar {
+  position: relative;
+  height: 4px;
+  background: var(--avs-surface-container);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ai-vis-scorecard__score-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--avs-primary);
+  border-radius: 2px;
+}
+.ai-vis-scorecard__score-num {
+  font-family: var(--avs-font-display);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--avs-primary);
+  text-align: right;
+}
+.ai-vis-scorecard__overall {
+  margin-top: auto;
+  padding: 16px 20px;
+  background: var(--avs-surface-container-low);
+  border-radius: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ai-vis-scorecard__overall-label {
+  font-family: var(--avs-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--avs-secondary);
+}
+.ai-vis-scorecard__overall-num {
+  font-family: var(--avs-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--avs-primary);
+  letter-spacing: -0.02em;
+}
+.ai-vis-scorecard__overall-num span {
+  font-style: normal; font-size: 18px; opacity: 0.5;
+}
+.ai-vis-scorecard__caption {
+  font-family: var(--avs-font-mono);
+  font-size: 10px; letter-spacing: 0.08em;
+  color: var(--avs-secondary);
+  text-transform: uppercase;
+  text-align: right;
+}
+</style>
+
+<div class="ai-vis-scorecard">
+  <div class="ai-vis-scorecard__artefact" aria-hidden="true">
+    <div class="ai-vis-scorecard__head">
+      <div>
+        <div class="ai-vis-scorecard__brand">Steve Quinlan</div>
+        <div class="ai-vis-scorecard__client">For: [Client Name] // Confidential</div>
+      </div>
+      <div class="ai-vis-scorecard__doc-id">SCORECARD_03 // 2026-Q2</div>
+    </div>
+
+    <div>
+      <div class="ai-vis-scorecard__eyebrow">AI VISIBILITY SCORECARD</div>
+      <p class="ai-vis-scorecard__title">
+        How AI engines find,<br><em>understand &amp; cite</em><br>your firm.
+      </p>
+    </div>
+
+    <div class="ai-vis-scorecard__scores">
+      <div class="ai-vis-scorecard__score-row">
+        <span class="ai-vis-scorecard__score-label">Findability</span>
+        <div class="ai-vis-scorecard__score-bar"><div class="ai-vis-scorecard__score-fill" style="width:62%"></div></div>
+        <span class="ai-vis-scorecard__score-num">62</span>
+      </div>
+      <div class="ai-vis-scorecard__score-row">
+        <span class="ai-vis-scorecard__score-label">Understandability</span>
+        <div class="ai-vis-scorecard__score-bar"><div class="ai-vis-scorecard__score-fill" style="width:48%"></div></div>
+        <span class="ai-vis-scorecard__score-num">48</span>
+      </div>
+      <div class="ai-vis-scorecard__score-row">
+        <span class="ai-vis-scorecard__score-label">Trustworthiness</span>
+        <div class="ai-vis-scorecard__score-bar"><div class="ai-vis-scorecard__score-fill" style="width:71%"></div></div>
+        <span class="ai-vis-scorecard__score-num">71</span>
+      </div>
+      <div class="ai-vis-scorecard__score-row">
+        <span class="ai-vis-scorecard__score-label">Agent-Readiness</span>
+        <div class="ai-vis-scorecard__score-bar"><div class="ai-vis-scorecard__score-fill" style="width:35%"></div></div>
+        <span class="ai-vis-scorecard__score-num">35</span>
+      </div>
+      <div class="ai-vis-scorecard__score-row">
+        <span class="ai-vis-scorecard__score-label">Citability</span>
+        <div class="ai-vis-scorecard__score-bar"><div class="ai-vis-scorecard__score-fill" style="width:54%"></div></div>
+        <span class="ai-vis-scorecard__score-num">54</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-scorecard__overall">
+      <span class="ai-vis-scorecard__overall-label">Composite Position</span>
+      <span class="ai-vis-scorecard__overall-num">54<span>/100</span></span>
+    </div>
+
+    <div class="ai-vis-scorecard__caption">FIG. 01 — REPRESENTATIVE OUTPUT</div>
+  </div>
+</div>

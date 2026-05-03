@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>AI Visibility Scorecard — Steve Quinlan</title>
+<link rel="stylesheet" href="css/colors-and-type.css" />
+<link rel="stylesheet" href="css/site-base.css" />
+<link rel="stylesheet" href="css/service-page.css" />
+</head>
+<body>
+<div class="sq-page" data-screen-label="00 AI Visibility Scorecard">
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="sq-nav" style="border-bottom:1px solid rgba(0,70,74,0.08)">
+    <div style="display:flex;align-items:center;gap:24px">
+      <div class="sq-nav__logo">Steve Quinlan</div>
+      <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.10em;color:var(--secondary);text-transform:uppercase;border-left:1px solid rgba(0,70,74,0.20);padding-left:24px">
+        AI Visibility Scorecard
+      </span>
+    </div>
+    <nav class="sq-nav__links">
+      <a class="sq-nav__link" href="#" data-nav>Home</a>
+      <a class="sq-nav__link" href="#" data-nav>About</a>
+      <a class="sq-nav__link" href="#" data-nav>Methodology</a>
+      <a class="sq-nav__link sq-nav__link--active" href="#" data-nav>Services</a>
+      <a class="sq-nav__link" href="#" data-nav>Contact</a>
+    </nav>
+    <button class="ed-btn ed-btn-primary" data-open-dialog>Book a fit call</button>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         01 HERO
+         ============================================================ -->
+    <section class="svc-hero" data-screen-label="01 Hero">
+      <div class="svc-hero__radial"></div>
+      <div class="svc-hero__inner">
+        <div class="svc-hero__left">
+          <div class="svc-hero__eyebrows">
+            <span class="ed-mono-md" style="letter-spacing:0.10em;font-size:12px">DIGITAL MONOGRAPH 02 // SERVICE</span>
+            <hr class="svc-rule" style="width:24px" />
+            <span class="ed-tag-square">AI Visibility Scorecard</span>
+          </div>
+          <h1 class="svc-hero__title">
+            Your next customer<br/>may ask AI <em>before</em><br/>they ask you.
+          </h1>
+          <p class="svc-hero__lead">
+            If someone uses ChatGPT, Perplexity or Gemini to research firms like yours,
+            do you know whether you appear, how you are described, and which competitors are recommended instead?
+          </p>
+          <p class="svc-hero__lead">
+            The AI Visibility Scorecard gives established service firms a clear, evidence-backed view of how AI engines find, understand, trust, work with and cite their business.
+          </p>
+          <div class="svc-hero__cta">
+            <button class="ed-btn ed-btn-primary" data-open-dialog>
+              Book a 15-minute fit call
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M9.131 6.75H0v-1.5h9.131L4.931 1.05 6 0l6 6-6 6-1.069-1.05z"/></svg>
+            </button>
+            <button class="ed-btn ed-btn-secondary" data-scroll-to="#five-dimensions">See what gets tested</button>
+          </div>
+          <div class="svc-hero__price-row">
+            <div class="svc-hero__price">£2,500</div>
+            <div class="svc-hero__price-meta">
+              <span class="ed-mono-md">FIXED SCOPE / 10 WORKING DAYS</span>
+              <span style="font-family:var(--font-body);font-size:14px;color:var(--on-surface-variant)">
+                Three named competitors. 10–20 key pages. Built for decisions, not more noise.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-hero__right">
+          <div class="svc-artefact" aria-hidden="true">
+            <div class="svc-artefact__head">
+              <div>
+                <div class="svc-artefact__brand">Steve Quinlan</div>
+                <div class="svc-artefact__client">For: [Client Name] // Confidential</div>
+              </div>
+              <div class="svc-artefact__doc-id">SCORECARD_03 // 2026-Q2</div>
+            </div>
+
+            <div>
+              <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.10em;color:var(--secondary);text-transform:uppercase;margin-bottom:12px">
+                AI VISIBILITY SCORECARD
+              </div>
+              <div class="svc-artefact__title">
+                How AI engines find,<br/><em>understand &amp; cite</em><br/>your firm.
+              </div>
+            </div>
+
+            <div class="svc-artefact__scores">
+              <div class="svc-artefact__score-row">
+                <span class="svc-artefact__score-label">Findability</span>
+                <div class="svc-artefact__score-bar"><div class="svc-artefact__score-fill" style="width:62%"></div></div>
+                <span class="svc-artefact__score-num">62</span>
+              </div>
+              <div class="svc-artefact__score-row">
+                <span class="svc-artefact__score-label">Understandability</span>
+                <div class="svc-artefact__score-bar"><div class="svc-artefact__score-fill" style="width:48%"></div></div>
+                <span class="svc-artefact__score-num">48</span>
+              </div>
+              <div class="svc-artefact__score-row">
+                <span class="svc-artefact__score-label">Trustworthiness</span>
+                <div class="svc-artefact__score-bar"><div class="svc-artefact__score-fill" style="width:71%"></div></div>
+                <span class="svc-artefact__score-num">71</span>
+              </div>
+              <div class="svc-artefact__score-row">
+                <span class="svc-artefact__score-label">Agent-Readiness</span>
+                <div class="svc-artefact__score-bar"><div class="svc-artefact__score-fill" style="width:35%"></div></div>
+                <span class="svc-artefact__score-num">35</span>
+              </div>
+              <div class="svc-artefact__score-row">
+                <span class="svc-artefact__score-label">Citability</span>
+                <div class="svc-artefact__score-bar"><div class="svc-artefact__score-fill" style="width:54%"></div></div>
+                <span class="svc-artefact__score-num">54</span>
+              </div>
+            </div>
+
+            <div class="svc-artefact__overall">
+              <span class="svc-artefact__overall-label">Composite Position</span>
+              <span class="svc-artefact__overall-num">54<span>/100</span></span>
+            </div>
+
+            <div class="svc-artefact__caption">FIG. 01 — REPRESENTATIVE OUTPUT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02 SHIFT
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="02 Shift">
+      <div class="svc-inner">
+        <div class="svc-shift__grid">
+          <div class="svc-shift__head">
+            <p class="svc-eyebrow">SECTION 01 // DIAGNOSIS</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2 class="svc-shift__h2">The shift you<br/>are <em>feeling.</em></h2>
+          </div>
+          <div class="svc-shift__body">
+            <p>Your marketing may not have stopped working. It may just be working in a market where the discovery journey has changed.</p>
+            <p>For years, the playbook was fairly stable: improve the website, publish useful content, build search visibility, keep refining the journey. Those things still matter. But they are no longer the whole picture.</p>
+            <p>Buyers are now using AI tools to research options, compare firms, summarise websites, and make sense of who to trust. They may arrive at your site later, with a shortlist already forming, or with assumptions shaped by what an AI engine has told them.</p>
+            <p>That creates a quieter risk for established service firms: you can keep investing in marketing and still not know whether AI engines understand your offer, surface your proof, or mention your competitors more confidently than you.</p>
+
+            <div class="svc-pull">
+              <div class="svc-pull__mark">"</div>
+              <p class="svc-pull__text">
+                When buyers use AI to understand the market, are we showing up clearly, accurately and credibly?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 WHY-NOT
+         ============================================================ -->
+    <section class="svc-section" data-screen-label="03 Why-not">
+      <div class="svc-inner">
+        <div class="svc-whynot__grid">
+          <div class="svc-whynot__head">
+            <p class="svc-eyebrow">SECTION 02 // OBJECTION</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>Why the usual answers <em>do not work.</em></h2>
+            <div class="svc-whynot__refrain">
+              <span>The standard advice</span>
+              <p style="font-family:var(--font-display);font-weight:300;font-style:italic;font-size:22px;line-height:32px;color:var(--primary);margin:0;margin-top:8px">
+                Add this tool. Use this prompt. Publish more content. Put AI in the workflow. Ask your agency about GEO.
+              </p>
+            </div>
+          </div>
+          <div class="svc-whynot__body">
+            <p>Most AI advice for businesses is still additive. Some of it may help. But it does not answer the first question: <em style="color:var(--primary);font-style:italic">what is actually happening to your business when AI engines research your market?</em></p>
+            <p>If ChatGPT misdescribes your offer, more content will not automatically fix it. If Perplexity finds stronger proof for a competitor, another blog post may not be the priority. If Gemini cannot understand the structure of your key service pages, adding an AI feature misses the point.</p>
+            <p style="font-family:var(--font-display);font-weight:400;font-style:italic;font-size:24px;line-height:34px;color:var(--primary);letter-spacing:-0.01em;margin-top:8px">
+              The first move is diagnosis.
+            </p>
+            <p>Before you invest in more activity, you need to know whether AI can find you, understand you, trust you, work with your site, and cite you as useful evidence. That is what the AI Visibility Scorecard is built to show.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 SCORECARD
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="04 Scorecard">
+      <div class="svc-inner">
+        <div class="svc-scorecard">
+          <div class="svc-scorecard__copy">
+            <p class="svc-eyebrow">SECTION 03 // THE PRODUCT</p>
+            <hr class="svc-rule" />
+            <h2>What the<br/><em>Scorecard</em> is.</h2>
+            <p>The AI Visibility Scorecard is a fixed-scope audit for established service firms that want to understand how they appear in AI-shaped buyer research.</p>
+            <p>Over <b style="color:var(--primary);font-weight:500">10 working days</b>, I test what ChatGPT, Perplexity and Gemini say about your business and three named competitors. I review <b style="color:var(--primary);font-weight:500">10–20 of your most important pages</b>, then score your firm across five dimensions.</p>
+            <p>You receive a clear Scorecard showing where you are strong, where you are exposed, and what to fix first. The output is not a long strategy report. It is a decision artefact.</p>
+          </div>
+          <div>
+            <p class="svc-eyebrow" style="margin-bottom:16px">FIVE PRACTICAL QUESTIONS</p>
+            <ul class="svc-questions">
+              <li>
+                <span class="svc-questions__num">Q_01</span>
+                <p class="svc-questions__q">Can AI engines find you when buyers ask about your market?</p>
+              </li>
+              <li>
+                <span class="svc-questions__num">Q_02</span>
+                <p class="svc-questions__q">Can they explain what you do accurately?</p>
+              </li>
+              <li>
+                <span class="svc-questions__num">Q_03</span>
+                <p class="svc-questions__q">Do they find enough proof to treat you as credible?</p>
+              </li>
+              <li>
+                <span class="svc-questions__num">Q_04</span>
+                <p class="svc-questions__q">Can AI-powered browsers and agents work with your site?</p>
+              </li>
+              <li>
+                <span class="svc-questions__num">Q_05</span>
+                <p class="svc-questions__q">Can your content be cited or used as evidence in an answer?</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05 FIVE DIMENSIONS
+         ============================================================ -->
+    <div id="five-dimensions">
+    <section class="svc-section" data-screen-label="05 Five Dimensions">
+      <div class="svc-inner">
+        <div class="svc-dims__head">
+          <div>
+            <p class="svc-eyebrow">SECTION 04 // FRAMEWORK</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>The five dimensions<br/>of <em>AI visibility.</em></h2>
+          </div>
+          <div class="svc-dims__head-meta">
+            <p>Five buyer-facing dimensions. Together, they show whether AI engines can recognise, explain and recommend your business in the moments where customers are forming a view.</p>
+          </div>
+        </div>
+        <div class="svc-dims__grid">
+          <div class="svc-dim">
+            <div class="svc-dim__glyph">F</div>
+            <span class="svc-dim__num">DIMENSION_01</span>
+            <h3 class="svc-dim__name">Findability</h3>
+            <p class="svc-dim__q">Can AI engines discover and surface your firm when buyers ask about your market, services or problem space?</p>
+            <div class="svc-dim__risk">
+              <span class="svc-dim__risk-label">Risk</span>
+              <p class="svc-dim__risk-text">If you are hard to find, you may not enter the buyer's consideration set at all.</p>
+            </div>
+          </div>
+          <div class="svc-dim">
+            <div class="svc-dim__glyph">U</div>
+            <span class="svc-dim__num">DIMENSION_02</span>
+            <h3 class="svc-dim__name">Understandability</h3>
+            <p class="svc-dim__q">Can AI engines accurately explain who you help, what you do, and when you are the right fit?</p>
+            <div class="svc-dim__risk">
+              <span class="svc-dim__risk-label">Risk</span>
+              <p class="svc-dim__risk-text">If your offer is unclear or inconsistently described, buyers may misunderstand you before they ever speak to you.</p>
+            </div>
+          </div>
+          <div class="svc-dim">
+            <div class="svc-dim__glyph">T</div>
+            <span class="svc-dim__num">DIMENSION_03</span>
+            <h3 class="svc-dim__name">Trustworthiness</h3>
+            <p class="svc-dim__q">Can AI engines find enough proof, specificity and credibility signals to treat your firm as a confident recommendation?</p>
+            <div class="svc-dim__risk">
+              <span class="svc-dim__risk-label">Risk</span>
+              <p class="svc-dim__risk-text">If your evidence is thin, generic or buried, competitors may look safer by comparison.</p>
+            </div>
+          </div>
+          <div class="svc-dim">
+            <div class="svc-dim__glyph">A</div>
+            <span class="svc-dim__num">DIMENSION_04</span>
+            <h3 class="svc-dim__name">Agent-Readiness</h3>
+            <p class="svc-dim__q">Can AI-powered browsers and agents work with your site, content, forms and key journeys?</p>
+            <div class="svc-dim__risk">
+              <span class="svc-dim__risk-label">Risk</span>
+              <p class="svc-dim__risk-text">If your site is difficult for agents to navigate or interpret, future buyer workflows may struggle to use it properly.</p>
+            </div>
+          </div>
+          <div class="svc-dim">
+            <div class="svc-dim__glyph">C</div>
+            <span class="svc-dim__num">DIMENSION_05</span>
+            <h3 class="svc-dim__name">Citability</h3>
+            <p class="svc-dim__q">Can your content be quoted, cited or used as useful evidence in an AI-generated answer?</p>
+            <div class="svc-dim__risk">
+              <span class="svc-dim__risk-label">Risk</span>
+              <p class="svc-dim__risk-text">If your expertise is not extractable, specific or well-supported, AI engines have less reason to include you in the buyer's research journey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- ============================================================
+         06 DELIVERABLES
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="06 Deliverables">
+      <div class="svc-inner">
+        <div class="svc-deliv__grid">
+          <div class="svc-deliv__copy">
+            <p class="svc-eyebrow">SECTION 05 // ARTEFACT</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>What you<br/><em>get.</em></h2>
+            <p class="svc-deliv__lead">A practical Scorecard built to help you make decisions, brief the right people, and avoid spending more money on the wrong fixes.</p>
+            <ul class="svc-deliv__list">
+              <li><span>DEL_01</span><span><b>Executive summary</b> with your headline position and top priorities.</span></li>
+              <li><span>DEL_02</span><span><b>Five-dimension score</b> across Findability, Understandability, Trustworthiness, Agent-Readiness and Citability.</span></li>
+              <li><span>DEL_03</span><span><b>Live AI-engine test results</b> from ChatGPT, Perplexity and Gemini.</span></li>
+              <li><span>DEL_04</span><span><b>Competitor comparison</b> against three named competitors.</span></li>
+              <li><span>DEL_05</span><span><b>Page review</b> of 10–20 key pages from your website.</span></li>
+              <li><span>DEL_06</span><span><b>Page-by-page findings</b> showing where the strongest and weakest signals sit.</span></li>
+              <li><span>DEL_07</span><span><b>Prioritised action list</b> ranked by value, effort, confidence and urgency.</span></li>
+              <li><span>DEL_08</span><span><b>90-day priority view</b> so you know what to fix first, what to defer, and what to monitor.</span></li>
+              <li><span>DEL_09</span><span><b>Delivery call</b> to walk through the findings and decide the next step.</span></li>
+            </ul>
+            <p class="svc-deliv__footnote">
+              The aim is not the longest possible list of recommendations. It is to give you a clear view of where you stand, what matters most, and which actions are worth taking next.
+            </p>
+          </div>
+          <div class="svc-deliv__visual">
+            <div class="svc-deliv__sheet svc-deliv__sheet--lead">
+              <span class="svc-deliv__sheet-tag">EXECUTIVE SUMMARY // PAGE 03</span>
+              <h3 class="svc-deliv__sheet-title">Headline position &amp; top three priorities.</h3>
+              <div class="svc-deliv__sheet-row svc-deliv__sheet-row--strong">
+                <span>Composite Position</span><span>54 / 100</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Strongest dimension</span><span>Trustworthiness</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Most exposed</span><span>Agent-Readiness</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Competitor leader</span><span>Firm B</span>
+              </div>
+            </div>
+
+            <div class="svc-deliv__sheet">
+              <span class="svc-deliv__sheet-tag">COMPETITOR MATRIX // PAGE 11</span>
+              <h3 class="svc-deliv__sheet-title">vs. three named firms.</h3>
+              <div class="svc-deliv__sheet-row">
+                <span>You</span><span>54</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Firm A</span><span>49</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Firm B</span><span>71</span>
+              </div>
+              <div class="svc-deliv__sheet-row">
+                <span>Firm C</span><span>52</span>
+              </div>
+              <div class="svc-deliv__chips">
+                <span class="svc-deliv__chip">CHATGPT</span>
+                <span class="svc-deliv__chip">PERPLEXITY</span>
+                <span class="svc-deliv__chip">GEMINI</span>
+              </div>
+            </div>
+
+            <div class="svc-deliv__priority">
+              <span class="svc-deliv__priority-tag">90-DAY VIEW // PAGE 24</span>
+              <h3 class="svc-deliv__priority-title">Fix first / defer / monitor.</h3>
+              <div class="svc-deliv__priority-grid">
+                <div class="svc-deliv__priority-cell">
+                  <span>Now</span><span>4 actions</span>
+                </div>
+                <div class="svc-deliv__priority-cell">
+                  <span>Defer</span><span>7 actions</span>
+                </div>
+                <div class="svc-deliv__priority-cell">
+                  <span>Monitor</span><span>3 signals</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         07 PROCESS
+         ============================================================ -->
+    <section class="svc-section" data-screen-label="07 Process">
+      <div class="svc-inner">
+        <div class="svc-process__head">
+          <div>
+            <p class="svc-eyebrow">SECTION 06 // METHOD</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>How it<br/><em>works.</em></h2>
+          </div>
+          <div class="svc-process__head-meta">
+            <p>Designed to be clear, contained, and easy to run alongside normal work. Seven steps over ten working days, with two short calls and a contained intake.</p>
+          </div>
+        </div>
+        <div class="svc-process__rail">
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">1</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Fit call</h3>
+              <p class="svc-process__step-desc">We start with a short call to check whether the Scorecard is the right tool for your situation. If there is not enough website, content or customer journey to review, I will say so.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">15 min</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Steve + you</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">2</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Intake</h3>
+              <p class="svc-process__step-desc">You share the context needed to judge the findings properly: your core services, ideal customers, main competitors, priority pages, and any current concerns about marketing, enquiries or visibility.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">Day 1–2</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">You share context</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">3</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">AI-engine testing</h3>
+              <p class="svc-process__step-desc">I test how ChatGPT, Perplexity and Gemini describe your firm, your market and three named competitors using a consistent set of buyer-style prompts.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">Day 2–5</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Steve</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">4</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Page review</h3>
+              <p class="svc-process__step-desc">I review 10–20 key pages from your site against the five Scorecard dimensions: Findability, Understandability, Trustworthiness, Agent-Readiness and Citability.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">Day 4–7</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Steve</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">5</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Scorecard production</h3>
+              <p class="svc-process__step-desc">I turn the evidence into a scored view of your current position, with competitor comparisons, page-level findings and prioritised recommendations.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">Day 7–9</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Steve</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">6</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Delivery call</h3>
+              <p class="svc-process__step-desc">We walk through the Scorecard together. You leave with a clear view of what to fix now, what to hand to your team or agency, and what to defer.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">Day 10</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Steve + you</span>
+            </div>
+          </div>
+          <div class="svc-process__step">
+            <div class="svc-process__step-num">7</div>
+            <div class="svc-process__step-body">
+              <h3 class="svc-process__step-name">Next-step decision</h3>
+              <p class="svc-process__step-desc">Three possible routes: fix the priority actions with your existing team, use a Systems Design Sprint for cross-functional fixes, or monitor the lower-priority issues.</p>
+            </div>
+            <div class="svc-process__step-meta">
+              <span class="svc-process__step-meta-label">Timing</span>
+              <span class="svc-process__step-meta-value">After delivery</span>
+              <span class="svc-process__step-meta-label" style="margin-top:8px">Owner</span>
+              <span class="svc-process__step-meta-value">Your call</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         08 WHO IT'S FOR
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="08 Who">
+      <div class="svc-inner">
+        <div class="svc-who__grid">
+          <div class="svc-who__head">
+            <p class="svc-eyebrow">SECTION 07 // FIT</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>Who it<br/>is <em>for.</em></h2>
+            <p>For established service firms where trust, explanation and comparison matter before someone enquires, books or buys. Usually around 30 people, led by a founder, MD or senior operations lead.</p>
+          </div>
+          <div class="svc-who__columns">
+            <div>
+              <div class="svc-who__col-tag">A good fit if</div>
+              <ul class="svc-who__list">
+                <li><span class="svc-who__bullet"></span><span>Your website already plays a role in how customers find and assess you.</span></li>
+                <li><span class="svc-who__bullet"></span><span>You sell a considered service, not a simple commodity.</span></li>
+                <li><span class="svc-who__bullet"></span><span>Your buyers need to understand your expertise before they act.</span></li>
+                <li><span class="svc-who__bullet"></span><span>You are already investing in marketing, content, SEO, paid media, agencies or website improvements.</span></li>
+                <li><span class="svc-who__bullet"></span><span>Enquiries, traffic or lead quality feel less predictable than they used to.</span></li>
+                <li><span class="svc-who__bullet"></span><span>You want clear priorities before spending more on content, SEO, AI tools or a website rebuild.</span></li>
+              </ul>
+            </div>
+            <div>
+              <div class="svc-who__col-tag">Not the right fit if</div>
+              <ul class="svc-who__list svc-who__list--no">
+                <li><span class="svc-who__bullet svc-who__bullet--no"></span><span>You have very little website or content to review.</span></li>
+                <li><span class="svc-who__bullet svc-who__bullet--no"></span><span>You want general AI training, not a diagnostic.</span></li>
+                <li><span class="svc-who__bullet svc-who__bullet--no"></span><span>You need implementation work inside the audit itself.</span></li>
+                <li><span class="svc-who__bullet svc-who__bullet--no"></span><span>You already have a mature internal AI and digital strategy team.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         09 VS SEO/GEO
+         ============================================================ -->
+    <section class="svc-section svc-section--dark" data-screen-label="09 vs SEO/GEO">
+      <div class="svc-inner">
+        <div class="svc-vs__head">
+          <p class="svc-eyebrow svc-eyebrow--on-dark">SECTION 08 // POSITIONING</p>
+          <hr class="svc-rule svc-rule--on-dark" style="margin:16px 0 32px"/>
+          <h2>How this differs from<br/><em>SEO or GEO.</em></h2>
+        </div>
+        <div class="svc-vs__grid">
+          <div class="svc-vs__card">
+            <span class="svc-vs__card-tag">DISCIPLINE_01</span>
+            <h3 class="svc-vs__card-name">SEO</h3>
+            <p class="svc-vs__card-q">"Can your pages rank?"</p>
+          </div>
+          <div class="svc-vs__card">
+            <span class="svc-vs__card-tag">DISCIPLINE_02</span>
+            <h3 class="svc-vs__card-name">GEO</h3>
+            <p class="svc-vs__card-q">"Can AI systems extract, summarise and cite your content?"</p>
+          </div>
+          <div class="svc-vs__card svc-vs__card--active">
+            <span class="svc-vs__card-tag svc-vs__card-tag--active">DISCIPLINE_03 // THIS</span>
+            <h3 class="svc-vs__card-name">AI Visibility Scorecard</h3>
+            <p class="svc-vs__card-q">"When a real buyer uses AI to understand the market, do you show up accurately, credibly and usefully beside the competitors they are also considering?"</p>
+          </div>
+        </div>
+        <div class="svc-vs__pull">
+          <p class="svc-vs__pull-quote">
+            A more commercial question than keywords, metadata or traffic.
+          </p>
+          <div class="svc-vs__pull-body">
+            <p>The Scorecard tests how AI engines describe your business, whether they understand your services, what proof they can find, how you compare with named competitors, and where your website or content may be making the wrong answer more likely.</p>
+            <p>It does not replace SEO. It gives you a sharper view of what SEO, content, website and AI-readiness work should prioritise next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10 AFTER
+         ============================================================ -->
+    <section class="svc-section" data-screen-label="10 After">
+      <div class="svc-inner">
+        <div class="svc-after__head">
+          <p class="svc-eyebrow">SECTION 09 // NEXT</p>
+          <hr class="svc-rule" style="margin:16px 0 32px"/>
+          <h2>What happens<br/><em>after.</em></h2>
+          <p>The Scorecard leaves you with a clear next decision, not a vague sense that there is more to do. After the delivery call, the priority actions usually fall into one of three routes.</p>
+        </div>
+        <div class="svc-after__grid">
+          <div class="svc-after__card">
+            <span class="svc-after__route">ROUTE_01</span>
+            <h3 class="svc-after__name">Fix now</h3>
+            <p class="svc-after__body">Recommendations handled by your existing team, agency, SEO consultant, web partner or content specialist. Clear, contained fixes where the owner is obvious and the work can move quickly.</p>
+            <div class="svc-after__owner">
+              <span class="svc-after__owner-label">Typical owner</span>
+              <span class="svc-after__owner-value">Existing team / agency</span>
+            </div>
+          </div>
+          <div class="svc-after__card svc-after__card--featured">
+            <span class="svc-after__route">ROUTE_02 // FEATURED</span>
+            <h3 class="svc-after__name"><span>Design the <em>system.</em></span></h3>
+            <p class="svc-after__body">Some fixes cut across website structure, service positioning, content evidence, schema, measurement, internal workflows or agency ownership. The follow-on is a Systems Design Sprint: a focused engagement to turn the highest-priority recommendations into a joined-up plan, working briefs, and testable changes.</p>
+            <div class="svc-after__owner">
+              <span class="svc-after__owner-label">Typical owner</span>
+              <span class="svc-after__owner-value">Systems Design Sprint</span>
+            </div>
+          </div>
+          <div class="svc-after__card">
+            <span class="svc-after__route">ROUTE_03</span>
+            <h3 class="svc-after__name">Defer &amp; monitor</h3>
+            <p class="svc-after__body">Not every issue deserves immediate action. Some findings may be lower-value, lower-confidence, or less urgent. Those should be monitored rather than allowed to distract the team.</p>
+            <div class="svc-after__owner">
+              <span class="svc-after__owner-label">Typical owner</span>
+              <span class="svc-after__owner-value">You — with a watchlist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11 WHY STEVE
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="11 Why Steve">
+      <div class="svc-inner">
+        <div class="svc-steve__grid">
+          <div>
+            <div class="svc-steve__portrait">
+              <div class="svc-steve__portrait-img"></div>
+              <div class="svc-steve__portrait-overlay"></div>
+            </div>
+            <div class="svc-steve__caption">
+              <span>STEVE QUINLAN // TECHNICAL CURATOR</span>
+              <span>Product, UX, conversion optimisation — applied to AI, with the business at the centre of every decision.</span>
+            </div>
+          </div>
+          <div class="svc-steve__copy">
+            <p class="svc-eyebrow">SECTION 10 // PRACTITIONER</p>
+            <hr class="svc-rule" style="margin:16px 0 32px"/>
+            <h2>Why <em>Steve.</em></h2>
+            <p class="svc-steve__lead">
+              AI has made execution cheaper. Judgement is the scarce part.
+            </p>
+            <div class="svc-steve__body">
+              <p>I have spent more than a decade improving digital journeys through experimentation, product thinking, UX, conversion optimisation and measurement. That background matters here because the Scorecard is not about chasing AI trends. It is about working out what is likely to change customer behaviour, what evidence supports that view, and what is worth fixing first.</p>
+              <p>My work sits between business goals, customer needs and emerging technology. I am interested in the practical middle ground: where AI changes how people research and decide, and where established firms need to adapt without being pulled into hype, tool-chasing or generic advice.</p>
+              <p>The aim is simple: help you see how AI understands your firm, then decide what to do about it with evidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12 PRICING
+         ============================================================ -->
+    <section class="svc-section" data-screen-label="12 Pricing">
+      <div class="svc-inner">
+        <div class="svc-price">
+          <div class="svc-price__mark">£</div>
+          <div class="svc-price__head">
+            <p class="svc-eyebrow">SECTION 11 // PRICE &amp; SCOPE</p>
+            <hr class="svc-rule" />
+            <h2>Fixed scope.<br/><em>Ten working days.</em></h2>
+            <p>The next step is a 15-minute call to check your situation, your site, and whether there is enough evidence to review.</p>
+            <div class="svc-price__big">
+              <div class="svc-price__big-num">£2,500</div>
+              <div class="svc-price__big-meta">
+                <span>FIXED FEE / EX VAT</span>
+                <span>One project. One artefact. One decision.</span>
+              </div>
+            </div>
+            <div class="svc-price__cta">
+              <button class="ed-btn ed-btn-primary" data-open-dialog>
+                Book a 15-minute fit call
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M9.131 6.75H0v-1.5h9.131L4.931 1.05 6 0l6 6-6 6-1.069-1.05z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="svc-price__cols">
+            <div class="svc-price__col">
+              <h4>Included</h4>
+              <ul>
+                <li>A fit call before we begin</li>
+                <li>Intake and competitor selection</li>
+                <li>Live AI-engine testing — ChatGPT, Perplexity, Gemini</li>
+                <li>Review of 10–20 key pages</li>
+                <li>Scoring across the five Scorecard dimensions</li>
+                <li>Competitor comparison against three named firms</li>
+                <li>Prioritised recommendations (value, effort, confidence, urgency)</li>
+                <li>A 90-day priority view</li>
+                <li>A delivery call to walk through the findings</li>
+              </ul>
+            </div>
+            <div class="svc-price__col svc-price__col--out">
+              <h4>Not included</h4>
+              <ul>
+                <li>Implementation of the recommendations</li>
+                <li>Ongoing SEO or content production</li>
+                <li>Paid media management</li>
+                <li>General AI training</li>
+                <li>Custom AI tool development</li>
+                <li>Long-term monitoring or retainer</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13 FAQ
+         ============================================================ -->
+    <section class="svc-section svc-section--low" data-screen-label="13 FAQ">
+      <div class="svc-inner">
+        <div class="svc-faq__head">
+          <p class="svc-eyebrow">SECTION 12 // OBJECTIONS</p>
+          <hr class="svc-rule" style="margin:16px 0 32px"/>
+          <h2>Frequent<br/>questions.</h2>
+        </div>
+        <div class="svc-faq__list">
+
+          <div class="svc-faq__item svc-faq__item--open">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_01</span>
+              <h3 class="svc-faq__q-text">Is this an SEO audit?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>No. SEO is part of the evidence, but the Scorecard asks a different question: how does your firm appear when buyers use AI to research, compare and understand their options?</p>
+                  <p>It looks at visibility, clarity, credibility, competitor positioning, agent-readiness and whether your content can be used as evidence in AI-generated answers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_02</span>
+              <h3 class="svc-faq__q-text">Is this a GEO audit?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>It includes GEO, but it is broader than that. GEO usually focuses on whether AI systems can extract, summarise and cite your content. The Scorecard looks at whether your business shows up accurately, credibly and usefully in an AI-shaped buying journey.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_03</span>
+              <h3 class="svc-faq__q-text">Do I need to give you analytics access?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>No. The Scorecard can run from public website and content evidence, plus a short intake.</p>
+                  <p>Analytics, Search Console data or CRM context can make the recommendations sharper, but they are optional.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_04</span>
+              <h3 class="svc-faq__q-text">What if AI answers change?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>They will. That is why the Scorecard is not based on one prompt or one answer.</p>
+                  <p>I test across multiple AI engines, compare your firm with named competitors, review your website and content evidence, and look for patterns rather than treating any single answer as permanent truth.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_05</span>
+              <h3 class="svc-faq__q-text">Which AI engines do you test?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>The standard Scorecard tests ChatGPT, Perplexity and Gemini.</p>
+                  <p>If a different engine matters for your market, we can discuss whether it should be included before the work begins.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_06</span>
+              <h3 class="svc-faq__q-text">Can our agency implement the recommendations?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>Yes. The Scorecard is designed to be useful for your existing team, agency, SEO consultant, web partner or content specialist.</p>
+                  <p>You will receive prioritised recommendations and action briefs that can be handed to the right people.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_07</span>
+              <h3 class="svc-faq__q-text">What if our site is small?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>A small site is fine if it already plays a meaningful role in how customers understand and assess your firm.</p>
+                  <p>If there is very little website, content or customer journey to review, the Scorecard may not be the right first step. I will tell you that before we begin.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_08</span>
+              <h3 class="svc-faq__q-text">Do you implement the fixes?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>Not inside the Scorecard. The Scorecard is a diagnostic and prioritisation product.</p>
+                  <p>If the findings show that the priority fixes cut across website, content, schema, measurement or team ownership, the follow-on option is a Systems Design Sprint.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-faq__item">
+            <button class="svc-faq__q" data-faq-toggle>
+              <span class="svc-faq__q-num">FAQ_09</span>
+              <h3 class="svc-faq__q-text">What happens after the Scorecard?</h3>
+              <span class="svc-faq__q-toggle"></span>
+            </button>
+            <div class="svc-faq__a">
+              <div class="svc-faq__a-inner">
+                <div class="svc-faq__a-body">
+                  <p>You leave with three possible routes: fix the priority actions with your existing team or agency, use a Systems Design Sprint for cross-functional fixes, or defer and monitor lower-priority issues.</p>
+                  <p>The aim is to make the next decision clear, not to create dependency.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         14 FOOT CTA
+         ============================================================ -->
+    <section class="svc-foot-cta" data-screen-label="14 Foot CTA">
+      <div class="svc-foot-cta__inner">
+        <h2>Find out how AI engines describe your firm — <em>before your next customer does.</em></h2>
+        <div class="svc-foot-cta__ctas">
+          <button class="ed-btn ed-btn-primary" data-open-dialog>
+            Book a 15-minute fit call
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M9.131 6.75H0v-1.5h9.131L4.931 1.05 6 0l6 6-6 6-1.069-1.05z"/></svg>
+          </button>
+          <span class="svc-foot-cta__meta">£2,500 // 10 WORKING DAYS // FIXED SCOPE</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="sq-footer">
+    <div>
+      <div class="sq-footer__logo">Steve Quinlan</div>
+      <div class="sq-footer__copy">© 2026 Steve Quinlan. Technical Curator.</div>
+    </div>
+    <div class="sq-footer__links">
+      <a href="#" data-nav>LinkedIn</a>
+      <a href="#" data-nav>Email</a>
+      <a href="#" data-nav>Privacy</a>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CONTACT DIALOG
+       ============================================================ -->
+  <div class="sq-dialog__scrim" id="contact-dialog" hidden>
+    <div class="sq-dialog">
+      <span class="sq-dialog__close" data-close-dialog aria-label="Close dialog">×</span>
+      <span class="ed-mono-md" style="letter-spacing:0.10em;font-size:11px">BOOK_A_FIT_CALL</span>
+      <h2 class="sq-dialog__title">Let's see if it's a fit.</h2>
+      <p class="sq-dialog__lead">A 15-minute call to check your situation, your site, and whether there is enough evidence to review. No pitch.</p>
+      <form class="sq-dialog__form" data-dialog-form>
+        <div class="ed-input">
+          <label for="cd-name">YOUR_NAME</label>
+          <input id="cd-name" type="text" placeholder="Anya Sharma" />
+        </div>
+        <div class="ed-input">
+          <label for="cd-firm">FIRM_NAME</label>
+          <input id="cd-firm" type="text" placeholder="Northway Advisory" />
+        </div>
+        <div class="ed-input">
+          <label for="cd-site">WEBSITE_URL</label>
+          <input id="cd-site" type="text" placeholder="www.example.com" />
+        </div>
+        <div class="ed-input">
+          <label for="cd-msg">CONTEXT_BRIEF</label>
+          <textarea id="cd-msg" rows="3" placeholder="What prompted you to look at this now?"></textarea>
+        </div>
+        <button type="submit" class="ed-btn ed-btn-primary">
+          Request fit call
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M9.131 6.75H0v-1.5h9.131L4.931 1.05 6 0l6 6-6 6-1.069-1.05z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

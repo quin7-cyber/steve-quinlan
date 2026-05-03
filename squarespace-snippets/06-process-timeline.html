@@ -1,0 +1,220 @@
+<!--
+  AI Visibility Scorecard — Seven-step process timeline
+  ======================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width below the section heading in Section 06 (How it works).
+
+  The section heading above the timeline ("SECTION 06 // METHOD"
+  eyebrow, the "How it works." headline, and the right-side meta
+  paragraph) should be built using Squarespace's native blocks,
+  OR I can provide a separate snippet for that header if you'd
+  like the italic display treatment to match the design exactly.
+
+  This snippet handles only the seven-step rail — italic step
+  numbers, hairline dividers between rows, step body in the
+  middle, and timing + owner metadata right-aligned in the
+  third column.
+
+  Layout collapses to a two-column rail under 1080px (number
+  + body, with metadata moved beneath the body).
+
+  No JavaScript. All CSS scoped to .ai-vis-process so it cannot
+  leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-process {
+  --avc-primary: #00464a;
+  --avc-secondary: #29695b;
+  --avc-on-surface-variant: #3f4949;
+  --avc-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avc-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avc-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-process *, .ai-vis-process *::before, .ai-vis-process *::after { box-sizing: border-box; }
+.ai-vis-process p, .ai-vis-process h3 { margin: 0; }
+
+.ai-vis-process__rail {
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  position: relative;
+}
+.ai-vis-process__step {
+  display: contents;
+}
+
+.ai-vis-process__step-num {
+  grid-column: 1;
+  font-family: var(--avc-font-display);
+  font-weight: 300; font-style: italic;
+  font-size: 56px; line-height: 56px;
+  color: var(--avc-primary);
+  letter-spacing: -0.04em;
+  padding-top: 24px;
+}
+
+.ai-vis-process__step-body {
+  grid-column: 2;
+  padding: 32px 64px 32px 0;
+  border-top: 1px solid rgba(0,70,74,0.15);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ai-vis-process__step-name {
+  font-family: var(--avc-font-display);
+  font-weight: 400; font-size: 28px; line-height: 32px;
+  color: var(--avc-primary);
+  letter-spacing: -0.01em;
+}
+.ai-vis-process__step-desc {
+  font-family: var(--avc-font-body);
+  font-size: 16px; line-height: 26px;
+  color: var(--avc-on-surface-variant);
+  max-width: 620px;
+}
+
+.ai-vis-process__step-meta {
+  grid-column: 3;
+  padding: 32px 0;
+  border-top: 1px solid rgba(0,70,74,0.15);
+  display: flex; flex-direction: column; gap: 6px;
+  align-items: flex-end;
+  text-align: right;
+}
+.ai-vis-process__step-meta-label {
+  font-family: var(--avc-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avc-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-process__step-meta-value {
+  font-family: var(--avc-font-body);
+  font-size: 14px; color: var(--avc-primary);
+  font-weight: 500;
+}
+.ai-vis-process__step-meta-label--spaced { margin-top: 8px; }
+
+/* The first step gets a darker rule above to anchor the rail */
+.ai-vis-process__step:first-child .ai-vis-process__step-body,
+.ai-vis-process__step:first-child .ai-vis-process__step-meta {
+  border-top: 1px solid rgba(0,70,74,0.30);
+}
+
+@media (max-width: 1080px) {
+  .ai-vis-process__rail {
+    grid-template-columns: 60px 1fr;
+  }
+  .ai-vis-process__step-meta {
+    grid-column: 2;
+    padding-top: 0;
+    border-top: none;
+    align-items: flex-start;
+    text-align: left;
+    padding-bottom: 32px;
+  }
+}
+</style>
+
+<div class="ai-vis-process">
+  <div class="ai-vis-process__rail">
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">1</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Fit call</h3>
+        <p class="ai-vis-process__step-desc">We start with a short call to check whether the Scorecard is the right tool for your situation. If there is not enough website, content or customer journey to review, I will say so.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">15 min</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Steve + you</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">2</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Intake</h3>
+        <p class="ai-vis-process__step-desc">You share the context needed to judge the findings properly: your core services, ideal customers, main competitors, priority pages, and any current concerns about marketing, enquiries or visibility.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">Day 1–2</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">You share context</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">3</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">AI-engine testing</h3>
+        <p class="ai-vis-process__step-desc">I test how ChatGPT, Perplexity and Gemini describe your firm, your market and three named competitors using a consistent set of buyer-style prompts.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">Day 2–5</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Steve</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">4</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Page review</h3>
+        <p class="ai-vis-process__step-desc">I review 10–20 key pages from your site against the five Scorecard dimensions: Findability, Understandability, Trustworthiness, Agent-Readiness and Citability.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">Day 4–7</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Steve</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">5</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Scorecard production</h3>
+        <p class="ai-vis-process__step-desc">I turn the evidence into a scored view of your current position, with competitor comparisons, page-level findings and prioritised recommendations.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">Day 7–9</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Steve</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">6</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Delivery call</h3>
+        <p class="ai-vis-process__step-desc">We walk through the Scorecard together. You leave with a clear view of what to fix now, what to hand to your team or agency, and what to defer.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">Day 10</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Steve + you</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-process__step">
+      <div class="ai-vis-process__step-num">7</div>
+      <div class="ai-vis-process__step-body">
+        <h3 class="ai-vis-process__step-name">Next-step decision</h3>
+        <p class="ai-vis-process__step-desc">Three possible routes: fix the priority actions with your existing team, use a Systems Design Sprint for cross-functional fixes, or monitor the lower-priority issues.</p>
+      </div>
+      <div class="ai-vis-process__step-meta">
+        <span class="ai-vis-process__step-meta-label">Timing</span>
+        <span class="ai-vis-process__step-meta-value">After delivery</span>
+        <span class="ai-vis-process__step-meta-label ai-vis-process__step-meta-label--spaced">Owner</span>
+        <span class="ai-vis-process__step-meta-value">Your call</span>
+      </div>
+    </div>
+
+  </div>
+</div>

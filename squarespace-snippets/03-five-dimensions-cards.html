@@ -1,0 +1,175 @@
+<!--
+  AI Visibility Scorecard — Five Dimensions cards
+  ================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width in Section 04 (The five dimensions of AI visibility).
+
+  The section heading above the cards ("SECTION 04 // FRAMEWORK"
+  eyebrow, "The five dimensions of AI visibility." headline, and
+  the right-side meta paragraph) should be built using Squarespace's
+  native blocks, OR I can provide a separate snippet for that header
+  if you'd like the italic display treatment to match the design exactly.
+
+  This snippet handles only the bento-style card grid — five cards
+  laid out as 3+3 on the top row, 2+2+2 on the bottom row, with
+  italic glyph badges in the upper-right of each card.
+
+  Layout collapses to a single column under 1080px.
+
+  No JavaScript. All CSS scoped to .ai-vis-dims so it cannot
+  leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&family=DM+Sans:opsz,wght@9..40,400&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-dims {
+  --avd-primary: #00464a;
+  --avd-secondary: #29695b;
+  --avd-on-surface-variant: #3f4949;
+  --avd-surface: #fbfbe2;
+  --avd-surface-container-lowest: #ffffff;
+  --avd-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avd-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avd-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-dims *, .ai-vis-dims *::before, .ai-vis-dims *::after { box-sizing: border-box; }
+.ai-vis-dims p, .ai-vis-dims h3 { margin: 0; }
+
+.ai-vis-dims__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+.ai-vis-dims__card {
+  background: var(--avd-surface-container-lowest);
+  border-radius: 12px;
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: background 240ms cubic-bezier(0.32, 0.08, 0.24, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.ai-vis-dims__card:hover { background: var(--avd-surface); }
+.ai-vis-dims__card:nth-child(1),
+.ai-vis-dims__card:nth-child(2) { grid-column: span 3; }
+.ai-vis-dims__card:nth-child(3),
+.ai-vis-dims__card:nth-child(4),
+.ai-vis-dims__card:nth-child(5) { grid-column: span 2; }
+
+.ai-vis-dims__glyph {
+  position: absolute;
+  top: 32px; right: 32px;
+  font-family: var(--avd-font-display);
+  font-weight: 300; font-style: italic;
+  font-size: 56px; line-height: 56px;
+  color: rgba(0,70,74,0.10);
+  letter-spacing: -0.04em;
+}
+.ai-vis-dims__num {
+  font-family: var(--avd-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avd-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-dims__name {
+  font-family: var(--avd-font-display);
+  font-weight: 400; font-size: 32px; line-height: 36px;
+  color: var(--avd-primary); letter-spacing: -0.015em;
+}
+.ai-vis-dims__q {
+  font-family: var(--avd-font-body);
+  font-weight: 400;
+  font-size: 16px; line-height: 26px;
+  color: var(--avd-on-surface-variant);
+}
+.ai-vis-dims__risk {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex; gap: 12px; align-items: flex-start;
+  border-top: 1px solid rgba(0,70,74,0.08);
+}
+.ai-vis-dims__risk-label {
+  font-family: var(--avd-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avd-secondary);
+  text-transform: uppercase;
+  flex-shrink: 0; padding-top: 2px;
+  width: 36px;
+}
+.ai-vis-dims__risk-text {
+  font-family: var(--avd-font-body);
+  font-size: 13px; line-height: 20px;
+  color: var(--avd-on-surface-variant);
+}
+
+@media (max-width: 1080px) {
+  .ai-vis-dims__grid { grid-template-columns: 1fr; }
+  .ai-vis-dims__card:nth-child(1),
+  .ai-vis-dims__card:nth-child(2),
+  .ai-vis-dims__card:nth-child(3),
+  .ai-vis-dims__card:nth-child(4),
+  .ai-vis-dims__card:nth-child(5) { grid-column: span 1; }
+}
+</style>
+
+<div class="ai-vis-dims">
+  <div class="ai-vis-dims__grid">
+
+    <div class="ai-vis-dims__card">
+      <div class="ai-vis-dims__glyph">F</div>
+      <span class="ai-vis-dims__num">DIMENSION_01</span>
+      <h3 class="ai-vis-dims__name">Findability</h3>
+      <p class="ai-vis-dims__q">Can AI engines discover and surface your firm when buyers ask about your market, services or problem space?</p>
+      <div class="ai-vis-dims__risk">
+        <span class="ai-vis-dims__risk-label">Risk</span>
+        <p class="ai-vis-dims__risk-text">If you are hard to find, you may not enter the buyer's consideration set at all.</p>
+      </div>
+    </div>
+
+    <div class="ai-vis-dims__card">
+      <div class="ai-vis-dims__glyph">U</div>
+      <span class="ai-vis-dims__num">DIMENSION_02</span>
+      <h3 class="ai-vis-dims__name">Understandability</h3>
+      <p class="ai-vis-dims__q">Can AI engines accurately explain who you help, what you do, and when you are the right fit?</p>
+      <div class="ai-vis-dims__risk">
+        <span class="ai-vis-dims__risk-label">Risk</span>
+        <p class="ai-vis-dims__risk-text">If your offer is unclear or inconsistently described, buyers may misunderstand you before they ever speak to you.</p>
+      </div>
+    </div>
+
+    <div class="ai-vis-dims__card">
+      <div class="ai-vis-dims__glyph">T</div>
+      <span class="ai-vis-dims__num">DIMENSION_03</span>
+      <h3 class="ai-vis-dims__name">Trustworthiness</h3>
+      <p class="ai-vis-dims__q">Can AI engines find enough proof, specificity and credibility signals to treat your firm as a confident recommendation?</p>
+      <div class="ai-vis-dims__risk">
+        <span class="ai-vis-dims__risk-label">Risk</span>
+        <p class="ai-vis-dims__risk-text">If your evidence is thin, generic or buried, competitors may look safer by comparison.</p>
+      </div>
+    </div>
+
+    <div class="ai-vis-dims__card">
+      <div class="ai-vis-dims__glyph">A</div>
+      <span class="ai-vis-dims__num">DIMENSION_04</span>
+      <h3 class="ai-vis-dims__name">Agent-Readiness</h3>
+      <p class="ai-vis-dims__q">Can AI-powered browsers and agents work with your site, content, forms and key journeys?</p>
+      <div class="ai-vis-dims__risk">
+        <span class="ai-vis-dims__risk-label">Risk</span>
+        <p class="ai-vis-dims__risk-text">If your site is difficult for agents to navigate or interpret, future buyer workflows may struggle to use it properly.</p>
+      </div>
+    </div>
+
+    <div class="ai-vis-dims__card">
+      <div class="ai-vis-dims__glyph">C</div>
+      <span class="ai-vis-dims__num">DIMENSION_05</span>
+      <h3 class="ai-vis-dims__name">Citability</h3>
+      <p class="ai-vis-dims__q">Can your content be quoted, cited or used as useful evidence in an AI-generated answer?</p>
+      <div class="ai-vis-dims__risk">
+        <span class="ai-vis-dims__risk-label">Risk</span>
+        <p class="ai-vis-dims__risk-text">If your expertise is not extractable, specific or well-supported, AI engines have less reason to include you in the buyer's research journey.</p>
+      </div>
+    </div>
+
+  </div>
+</div>

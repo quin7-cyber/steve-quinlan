@@ -1,0 +1,207 @@
+<!--
+  AI Visibility Scorecard — Deliverables preview stack
+  =====================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  in the right column of Section 05 (What you get), opposite the
+  DEL_01–DEL_09 list (snippet 04).
+
+  Three stacked cards that show what the actual report looks like:
+    1. Executive summary mock (light card)
+    2. Competitor matrix (light card)
+    3. 90-day priority view (dark teal card)
+
+  No JavaScript. All CSS scoped to .ai-vis-preview so it cannot
+  leak into the rest of the site.
+
+  STICKY POSITIONING:
+  The wrapper uses position:sticky so the cards stay visible while
+  the visitor scrolls down the long left-column DEL list. This
+  needs a parent column that does not have overflow:hidden — most
+  Squarespace section layouts allow it, but if the cards never
+  stick, see "If something looks off" in the chat.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400..700&display=swap");
+
+.ai-vis-preview {
+  --avp-primary: #00464a;
+  --avp-secondary: #29695b;
+  --avp-on-primary: #ffffff;
+  --avp-on-primary-muted: #8fd8dc;
+  --avp-on-surface-variant: #3f4949;
+  --avp-surface-container-lowest: #ffffff;
+  --avp-surface-container-low: #f5f5dc;
+  --avp-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avp-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avp-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  position: sticky;
+  top: 120px;
+  display: flex; flex-direction: column; gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.ai-vis-preview *, .ai-vis-preview *::before, .ai-vis-preview *::after { box-sizing: border-box; }
+.ai-vis-preview h3 { margin: 0; }
+
+/* Light sheets (executive summary + competitor matrix) */
+.ai-vis-preview__sheet {
+  background: var(--avp-surface-container-lowest);
+  border-radius: 8px;
+  padding: 24px 28px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 12px 16px;
+  box-shadow: 0 1px 2px rgba(0,70,74,0.04);
+}
+.ai-vis-preview__sheet--lead { padding: 32px; }
+.ai-vis-preview__sheet-tag {
+  grid-column: 1 / -1;
+  font-family: var(--avp-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avp-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-preview__sheet-title {
+  grid-column: 1 / -1;
+  font-family: var(--avp-font-display);
+  font-weight: 400; font-size: 22px; line-height: 28px;
+  color: var(--avp-primary);
+  letter-spacing: -0.01em;
+}
+.ai-vis-preview__sheet-row {
+  display: contents;
+}
+.ai-vis-preview__sheet-row > span:first-child {
+  font-family: var(--avp-font-body);
+  font-size: 13px; line-height: 22px;
+  color: var(--avp-on-surface-variant);
+}
+.ai-vis-preview__sheet-row > span:last-child {
+  font-family: var(--avp-font-mono);
+  font-size: 12px;
+  color: var(--avp-primary);
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+.ai-vis-preview__sheet-row--strong > span:last-child { font-weight: 700; }
+
+.ai-vis-preview__chips {
+  grid-column: 1 / -1;
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 4px;
+}
+.ai-vis-preview__chip {
+  font-family: var(--avp-font-mono);
+  font-size: 10px; letter-spacing: 0.05em;
+  color: var(--avp-secondary);
+  background: var(--avp-surface-container-low);
+  padding: 4px 8px; border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* Dark priority block */
+.ai-vis-preview__priority {
+  background: var(--avp-primary);
+  color: var(--avp-on-primary);
+  border-radius: 8px;
+  padding: 28px;
+}
+.ai-vis-preview__priority-tag {
+  font-family: var(--avp-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avp-on-primary-muted);
+  text-transform: uppercase;
+}
+.ai-vis-preview__priority-title {
+  margin-top: 8px;
+  font-family: var(--avp-font-display);
+  font-weight: 400; font-style: italic;
+  font-size: 24px; line-height: 30px;
+  color: var(--avp-on-primary);
+}
+.ai-vis-preview__priority-grid {
+  margin-top: 20px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.ai-vis-preview__priority-cell {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ai-vis-preview__priority-cell span:first-child {
+  font-family: var(--avp-font-mono);
+  font-size: 9px; letter-spacing: 0.10em;
+  color: var(--avp-on-primary-muted);
+  text-transform: uppercase;
+}
+.ai-vis-preview__priority-cell span:last-child {
+  font-family: var(--avp-font-body);
+  font-weight: 500; font-size: 13px;
+  color: var(--avp-on-primary);
+}
+</style>
+
+<div class="ai-vis-preview">
+
+  <!-- 1. Executive summary mock (light) -->
+  <div class="ai-vis-preview__sheet ai-vis-preview__sheet--lead">
+    <span class="ai-vis-preview__sheet-tag">EXECUTIVE SUMMARY // PAGE 03</span>
+    <h3 class="ai-vis-preview__sheet-title">Headline position &amp; top three priorities.</h3>
+    <div class="ai-vis-preview__sheet-row ai-vis-preview__sheet-row--strong">
+      <span>Composite Position</span><span>54 / 100</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Strongest dimension</span><span>Trustworthiness</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Most exposed</span><span>Agent-Readiness</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Competitor leader</span><span>Firm B</span>
+    </div>
+  </div>
+
+  <!-- 2. Competitor matrix (light) -->
+  <div class="ai-vis-preview__sheet">
+    <span class="ai-vis-preview__sheet-tag">COMPETITOR MATRIX // PAGE 11</span>
+    <h3 class="ai-vis-preview__sheet-title">vs. three named firms.</h3>
+    <div class="ai-vis-preview__sheet-row">
+      <span>You</span><span>54</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Firm A</span><span>49</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Firm B</span><span>71</span>
+    </div>
+    <div class="ai-vis-preview__sheet-row">
+      <span>Firm C</span><span>52</span>
+    </div>
+    <div class="ai-vis-preview__chips">
+      <span class="ai-vis-preview__chip">CHATGPT</span>
+      <span class="ai-vis-preview__chip">PERPLEXITY</span>
+      <span class="ai-vis-preview__chip">GEMINI</span>
+    </div>
+  </div>
+
+  <!-- 3. 90-day priority view (dark) -->
+  <div class="ai-vis-preview__priority">
+    <span class="ai-vis-preview__priority-tag">90-DAY VIEW // PAGE 24</span>
+    <h3 class="ai-vis-preview__priority-title">Fix first / defer / monitor.</h3>
+    <div class="ai-vis-preview__priority-grid">
+      <div class="ai-vis-preview__priority-cell">
+        <span>Now</span><span>4 actions</span>
+      </div>
+      <div class="ai-vis-preview__priority-cell">
+        <span>Defer</span><span>7 actions</span>
+      </div>
+      <div class="ai-vis-preview__priority-cell">
+        <span>Monitor</span><span>3 signals</span>
+      </div>
+    </div>
+  </div>
+
+</div>

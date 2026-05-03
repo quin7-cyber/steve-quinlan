@@ -1,0 +1,138 @@
+<!--
+  AI Visibility Scorecard — What happens after (three routes)
+  ============================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width below the section heading in "What happens after".
+
+  The section heading above the cards (eyebrow, "What happens
+  after." headline, and the introductory paragraph) should be
+  built using Squarespace's native blocks — they are plain
+  typography, no custom layout needed.
+
+  This snippet handles only the three-card grid:
+    1. ROUTE_01 — Fix now (light card)
+    2. ROUTE_02 — Design the system (mint featured card)
+    3. ROUTE_03 — Defer & monitor (light card)
+
+  Layout collapses to a single column under 1080px.
+
+  No JavaScript. All CSS scoped to .ai-vis-after so it cannot
+  leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-after {
+  --avr-primary: #00464a;
+  --avr-secondary: #29695b;
+  --avr-secondary-container: #acedda;
+  --avr-surface-container-lowest: #ffffff;
+  --avr-on-surface-variant: #3f4949;
+  --avr-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avr-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avr-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-after *, .ai-vis-after *::before, .ai-vis-after *::after { box-sizing: border-box; }
+.ai-vis-after p, .ai-vis-after h3 { margin: 0; }
+
+.ai-vis-after__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ai-vis-after__card {
+  background: var(--avr-surface-container-lowest);
+  border-radius: 12px;
+  padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  min-height: 360px;
+}
+.ai-vis-after__card--featured {
+  background: var(--avr-secondary-container);
+}
+
+.ai-vis-after__route {
+  font-family: var(--avr-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avr-secondary);
+  text-transform: uppercase;
+}
+
+.ai-vis-after__name {
+  font-family: var(--avr-font-display);
+  font-weight: 400; font-size: 32px; line-height: 36px;
+  color: var(--avr-primary);
+  letter-spacing: -0.01em;
+}
+.ai-vis-after__name em { font-style: italic; font-weight: 300; }
+
+.ai-vis-after__body {
+  font-family: var(--avr-font-body);
+  font-size: 16px; line-height: 26px;
+  color: var(--avr-on-surface-variant);
+}
+.ai-vis-after__card--featured .ai-vis-after__body {
+  color: var(--avr-primary);
+  opacity: 0.78;
+}
+
+.ai-vis-after__owner {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,70,74,0.15);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ai-vis-after__owner-label {
+  font-family: var(--avr-font-mono);
+  font-size: 10px; letter-spacing: 0.10em;
+  color: var(--avr-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-after__owner-value {
+  font-family: var(--avr-font-body);
+  font-size: 14px;
+  color: var(--avr-primary);
+  font-weight: 500;
+}
+
+@media (max-width: 1080px) {
+  .ai-vis-after__grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="ai-vis-after">
+  <div class="ai-vis-after__grid">
+
+    <div class="ai-vis-after__card">
+      <span class="ai-vis-after__route">ROUTE_01</span>
+      <h3 class="ai-vis-after__name">Fix now</h3>
+      <p class="ai-vis-after__body">Recommendations handled by your existing team, agency, SEO consultant, web partner or content specialist. Clear, contained fixes where the owner is obvious and the work can move quickly.</p>
+      <div class="ai-vis-after__owner">
+        <span class="ai-vis-after__owner-label">Typical owner</span>
+        <span class="ai-vis-after__owner-value">Existing team / agency</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-after__card ai-vis-after__card--featured">
+      <span class="ai-vis-after__route">ROUTE_02 // FEATURED</span>
+      <h3 class="ai-vis-after__name">Design the <em>system.</em></h3>
+      <p class="ai-vis-after__body">Some fixes cut across website structure, service positioning, content evidence, schema, measurement, internal workflows or agency ownership. The follow-on is a Systems Design Sprint: a focused engagement to turn the highest-priority recommendations into a joined-up plan, working briefs, and testable changes.</p>
+      <div class="ai-vis-after__owner">
+        <span class="ai-vis-after__owner-label">Typical owner</span>
+        <span class="ai-vis-after__owner-value">Systems Design Sprint</span>
+      </div>
+    </div>
+
+    <div class="ai-vis-after__card">
+      <span class="ai-vis-after__route">ROUTE_03</span>
+      <h3 class="ai-vis-after__name">Defer &amp; monitor</h3>
+      <p class="ai-vis-after__body">Not every issue deserves immediate action. Some findings may be lower-value, lower-confidence, or less urgent. Those should be monitored rather than allowed to distract the team.</p>
+      <div class="ai-vis-after__owner">
+        <span class="ai-vis-after__owner-label">Typical owner</span>
+        <span class="ai-vis-after__owner-value">You — with a watchlist</span>
+      </div>
+    </div>
+
+  </div>
+</div>

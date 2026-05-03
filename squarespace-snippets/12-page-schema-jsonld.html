@@ -1,0 +1,254 @@
+<!--
+  AI Visibility Scorecard — Schema.org JSON-LD
+  =============================================
+  Page-level structured data for https://www.steve-quinlan.com/ai-visibility-scorecard
+
+  WHERE TO PASTE IN SQUARESPACE
+  -----------------------------
+  Squarespace lets you inject page-specific code into the <head>:
+
+    1. Open the AI Visibility Scorecard page in the editor
+    2. Click the gear icon next to the page title in the Pages panel
+    3. Go to the "Advanced" tab
+    4. Paste this entire snippet (including the <script> tags) into
+       "Page Header Code Injection"
+    5. Save and publish
+
+  Page Header Code Injection runs inside <head>, which is where Google
+  and AI engines expect JSON-LD to live.
+
+  WHAT THIS GIVES YOU
+  -------------------
+  - Service schema with full offer details (£2,500, fixed scope, named competitors)
+  - FAQPage schema covering all 9 FAQs verbatim, eligible for Google FAQ rich results
+  - Person schema for Steve, linked to LinkedIn
+  - ProfessionalService schema for the consulting practice
+  - WebPage tying everything together
+  - All entities cross-referenced via @id so AI engines can follow the relationships
+
+  ABOUT THE #FRAGMENT @IDs
+  ------------------------
+  Each entity has an @id like "https://www.steve-quinlan.com/#steve" or
+  "https://www.steve-quinlan.com/ai-visibility-scorecard#service". Those
+  #fragments are NOT real URLs on the site — they are unique identifiers
+  used inside JSON-LD so entities can reference each other. Search engines
+  and AI engines understand this convention; they will not try to crawl
+  those fragment URLs as separate pages. Do not strip the fragments — if
+  you do, multiple entities end up with the same @id and the cross-references
+  break.
+
+  WHAT TO UPDATE OVER TIME
+  ------------------------
+  - "datePublished" / "dateModified" — refresh dateModified when you edit copy
+  - FAQ "acceptedAnswer.text" — keep these in sync with the live FAQ section
+  - "image" on Person — paste a Steve portrait URL when you have a canonical one
+  - "aggregateRating" / "review" — add when you have published testimonials
+
+  HOW TO VALIDATE
+  ---------------
+  After publishing, paste the live URL into:
+  - https://search.google.com/test/rich-results — checks Google rich-result eligibility
+  - https://validator.schema.org — generic schema validator
+  Both should report no errors and detect Service, FAQPage, Person, BreadcrumbList.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.steve-quinlan.com/#steve",
+      "name": "Steve Quinlan",
+      "givenName": "Steve",
+      "familyName": "Quinlan",
+      "url": "https://www.steve-quinlan.com/",
+      "jobTitle": "Technical Curator",
+      "description": "Product, UX, conversion optimisation. Applied to AI, with the business at the centre of every decision. More than a decade of experimentation, applied to AI.",
+      "knowsAbout": [
+        "AI visibility",
+        "Generative engine optimisation",
+        "AI search optimisation",
+        "Experimentation",
+        "Conversion rate optimisation",
+        "Customer journey design",
+        "Product strategy",
+        "User experience research"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/steve-quinlan/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.steve-quinlan.com/#organization",
+      "name": "Steve Quinlan",
+      "url": "https://www.steve-quinlan.com/",
+      "description": "AI visibility consulting and productised audits for established service firms. Helps founders and operations leads understand how AI engines find, understand and recommend their firm, then prioritises what to fix first.",
+      "founder": { "@id": "https://www.steve-quinlan.com/#steve" },
+      "employee": { "@id": "https://www.steve-quinlan.com/#steve" },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "priceRange": "££",
+      "sameAs": [
+        "https://www.linkedin.com/in/steve-quinlan/"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.steve-quinlan.com/ai-visibility-scorecard#service",
+      "name": "AI Visibility Scorecard",
+      "alternateName": "AI Visibility Audit",
+      "serviceType": "AI Visibility Audit",
+      "category": "Productised consulting audit",
+      "url": "https://www.steve-quinlan.com/ai-visibility-scorecard",
+      "description": "A 10-day, fixed-scope audit that scores how AI engines (ChatGPT, Perplexity, and Gemini) find, understand, trust, work with, and cite an established service firm against three named competitors and across 10-20 key pages. The Scorecard tests five buyer-facing dimensions: Findability, Understandability, Trustworthiness, Agent-Readiness, and Citability. Output is a decision artefact with a prioritised list of what to fix first.",
+      "provider": { "@id": "https://www.steve-quinlan.com/#organization" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Established service firms",
+        "name": "Founders, MDs and operations leads of around-30-person service firms"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "termsOfService": "Fixed scope. Ten working days. One project. One artefact. One decision.",
+      "offers": {
+        "@type": "Offer",
+        "name": "AI Visibility Scorecard — fixed-scope audit",
+        "price": "2500",
+        "priceCurrency": "GBP",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "2500",
+          "priceCurrency": "GBP",
+          "valueAddedTaxIncluded": false
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.steve-quinlan.com/contact",
+        "seller": { "@id": "https://www.steve-quinlan.com/#organization" }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "What is included in the AI Visibility Scorecard",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fit call before we begin" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intake and competitor selection" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Live AI-engine testing across ChatGPT, Perplexity and Gemini" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Review of 10 to 20 key pages from your website" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Scoring across the five Scorecard dimensions: Findability, Understandability, Trustworthiness, Agent-Readiness, Citability" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Competitor comparison against three named firms" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prioritised recommendations ranked by value, effort, confidence and urgency" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "90-day priority view: fix first, defer, monitor" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Delivery call to walk through the findings" } }
+        ]
+      },
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "name": "Book a 15-minute fit call",
+        "target": "https://www.steve-quinlan.com/contact"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.steve-quinlan.com/ai-visibility-scorecard#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this an SEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SEO is part of the evidence, but the Scorecard asks a different question: how does your firm appear when buyers use AI to research, compare and understand their options? It looks at visibility, clarity, credibility, competitor positioning, agent-readiness and whether your content can be used as evidence in AI-generated answers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this a GEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It includes GEO, but it is broader than that. GEO usually focuses on whether AI systems can extract, summarise and cite your content. The Scorecard looks at whether your business shows up accurately, credibly and usefully in an AI-shaped buying journey."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to give you analytics access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Scorecard can run from public website and content evidence, plus a short intake. Analytics, Search Console data or CRM context can make the recommendations sharper, but they are optional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if AI answers change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They will. That is why the Scorecard is not based on one prompt or one answer. I test across multiple AI engines, compare your firm with named competitors, review your website and content evidence, and look for patterns rather than treating any single answer as permanent truth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI engines do you test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard Scorecard tests ChatGPT, Perplexity and Gemini. If a different engine matters for your market, we can discuss whether it should be included before the work begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can our agency implement the recommendations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Scorecard is designed to be useful for your existing team, agency, SEO consultant, web partner or content specialist. You will receive prioritised recommendations and action briefs that can be handed to the right people."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if our site is small?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A small site is fine if it already plays a meaningful role in how customers understand and assess your firm. If there is very little website, content or customer journey to review, the Scorecard may not be the right first step. I will tell you that before we begin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you implement the fixes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not inside the Scorecard. The Scorecard is a diagnostic and prioritisation product. If the findings show that the priority fixes cut across website, content, schema, measurement or team ownership, the follow-on option is a Systems Design Sprint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the Scorecard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You leave with three possible routes: fix the priority actions with your existing team or agency, use a Systems Design Sprint for cross-functional fixes, or defer and monitor lower-priority issues. The aim is to make the next decision clear, not to create dependency."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.steve-quinlan.com/ai-visibility-scorecard#webpage",
+      "url": "https://www.steve-quinlan.com/ai-visibility-scorecard",
+      "name": "AI Visibility Scorecard for Service Firms",
+      "description": "AI is already describing your firm to buyers. The Scorecard tests what ChatGPT, Perplexity and Gemini say, against three named competitors. £2,500.",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.steve-quinlan.com/#website",
+        "name": "Steve Quinlan",
+        "url": "https://www.steve-quinlan.com/",
+        "publisher": { "@id": "https://www.steve-quinlan.com/#organization" }
+      },
+      "mainEntity": { "@id": "https://www.steve-quinlan.com/ai-visibility-scorecard#service" },
+      "about": [
+        { "@id": "https://www.steve-quinlan.com/ai-visibility-scorecard#service" },
+        { "@id": "https://www.steve-quinlan.com/#steve" }
+      ]
+    }
+  ]
+}
+</script>

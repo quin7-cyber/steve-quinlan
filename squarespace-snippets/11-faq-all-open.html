@@ -1,0 +1,186 @@
+<!--
+  AI Visibility Scorecard — FAQ (all open, plain HTML)
+  =====================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width below the section heading in Section 12 (Frequent
+  questions).
+
+  The section heading above the list (eyebrow "SECTION 12 //
+  OBJECTIONS", "Frequent questions." headline, and the short rule)
+  should be built using Squarespace's native blocks.
+
+  This is the all-open version — every Q&A is visible by default
+  with no accordion behaviour. Choice rationale: this is a page
+  about AI visibility, so keeping every answer extractable by
+  AI crawlers and skim-readers is on-brand. The tradeoff is
+  length — fully expanded the section is significant scroll, but
+  the hairline dividers keep the rhythm readable.
+
+  No JavaScript. All CSS scoped to .ai-vis-faq so it cannot leak
+  into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=DM+Sans:opsz,wght@9..40,400&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-faq {
+  --avf-primary: #00464a;
+  --avf-secondary: #29695b;
+  --avf-on-surface-variant: #3f4949;
+  --avf-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avf-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avf-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-faq *, .ai-vis-faq *::before, .ai-vis-faq *::after { box-sizing: border-box; }
+
+.ai-vis-faq__list {
+  border-top: 1px solid rgba(0,70,74,0.20);
+}
+
+.ai-vis-faq__item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0,70,74,0.15);
+  align-items: start;
+}
+
+.ai-vis-faq__num {
+  font-family: var(--avf-font-mono);
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--avf-secondary);
+  text-transform: uppercase;
+  padding-top: 6px;
+}
+
+.ai-vis-faq__q {
+  font-family: var(--avf-font-display);
+  font-weight: 400; font-size: 24px; line-height: 32px;
+  color: var(--avf-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px 0;
+}
+
+.ai-vis-faq__a {
+  font-family: var(--avf-font-body);
+  font-size: 17px; line-height: 28px;
+  color: var(--avf-on-surface-variant);
+  display: flex; flex-direction: column; gap: 16px;
+  max-width: 760px;
+}
+.ai-vis-faq__a p { margin: 0; }
+
+@media (max-width: 700px) {
+  .ai-vis-faq__item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 0;
+  }
+  .ai-vis-faq__num { padding-top: 0; }
+  .ai-vis-faq__q { font-size: 22px; line-height: 30px; }
+}
+</style>
+
+<div class="ai-vis-faq">
+  <div class="ai-vis-faq__list">
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_01</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Is this an SEO audit?</h3>
+        <div class="ai-vis-faq__a">
+          <p>No. SEO is part of the evidence, but the Scorecard asks a different question: how does your firm appear when buyers use AI to research, compare and understand their options?</p>
+          <p>It looks at visibility, clarity, credibility, competitor positioning, agent-readiness and whether your content can be used as evidence in AI-generated answers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_02</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Is this a GEO audit?</h3>
+        <div class="ai-vis-faq__a">
+          <p>It includes GEO, but it is broader than that. GEO usually focuses on whether AI systems can extract, summarise and cite your content. The Scorecard looks at whether your business shows up accurately, credibly and usefully in an AI-shaped buying journey.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_03</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Do I need to give you analytics access?</h3>
+        <div class="ai-vis-faq__a">
+          <p>No. The Scorecard can run from public website and content evidence, plus a short intake.</p>
+          <p>Analytics, Search Console data or CRM context can make the recommendations sharper, but they are optional.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_04</span>
+      <div>
+        <h3 class="ai-vis-faq__q">What if AI answers change?</h3>
+        <div class="ai-vis-faq__a">
+          <p>They will. That is why the Scorecard is not based on one prompt or one answer.</p>
+          <p>I test across multiple AI engines, compare your firm with named competitors, review your website and content evidence, and look for patterns rather than treating any single answer as permanent truth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_05</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Which AI engines do you test?</h3>
+        <div class="ai-vis-faq__a">
+          <p>The standard Scorecard tests ChatGPT, Perplexity and Gemini.</p>
+          <p>If a different engine matters for your market, we can discuss whether it should be included before the work begins.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_06</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Can our agency implement the recommendations?</h3>
+        <div class="ai-vis-faq__a">
+          <p>Yes. The Scorecard is designed to be useful for your existing team, agency, SEO consultant, web partner or content specialist.</p>
+          <p>You will receive prioritised recommendations and action briefs that can be handed to the right people.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_07</span>
+      <div>
+        <h3 class="ai-vis-faq__q">What if our site is small?</h3>
+        <div class="ai-vis-faq__a">
+          <p>A small site is fine if it already plays a meaningful role in how customers understand and assess your firm.</p>
+          <p>If there is very little website, content or customer journey to review, the Scorecard may not be the right first step. I will tell you that before we begin.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_08</span>
+      <div>
+        <h3 class="ai-vis-faq__q">Do you implement the fixes?</h3>
+        <div class="ai-vis-faq__a">
+          <p>Not inside the Scorecard. The Scorecard is a diagnostic and prioritisation product.</p>
+          <p>If the findings show that the priority fixes cut across website, content, schema, measurement or team ownership, the follow-on option is a Systems Design Sprint.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-vis-faq__item">
+      <span class="ai-vis-faq__num">FAQ_09</span>
+      <div>
+        <h3 class="ai-vis-faq__q">What happens after the Scorecard?</h3>
+        <div class="ai-vis-faq__a">
+          <p>You leave with three possible routes: fix the priority actions with your existing team or agency, use a Systems Design Sprint for cross-functional fixes, or defer and monitor lower-priority issues.</p>
+          <p>The aim is to make the next decision clear, not to create dependency.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

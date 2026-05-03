@@ -1,0 +1,89 @@
+<!--
+  AI Visibility Scorecard — Five Practical Questions list
+  ========================================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  in the right column of Section 03 (What the Scorecard is).
+
+  The left column ("SECTION 03 // THE PRODUCT" eyebrow, the
+  "What the Scorecard is." heading, and the three paragraphs)
+  should be built using Squarespace's native Heading and Text
+  blocks — they are plain typography, no custom layout needed.
+
+  This snippet handles only the right-column list, which needs
+  the question-number column, dashed dividers and Newsreader
+  display font that Squarespace blocks cannot produce on their own.
+
+  No JavaScript. All CSS scoped to .ai-vis-questions so it
+  cannot leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-questions {
+  --avq-primary: #00464a;
+  --avq-secondary: #29695b;
+  --avq-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avq-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-questions *, .ai-vis-questions *::before, .ai-vis-questions *::after { box-sizing: border-box; }
+.ai-vis-questions p { margin: 0; }
+
+.ai-vis-questions__eyebrow {
+  font-family: var(--avq-font-mono);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--avq-secondary);
+  margin: 0 0 16px 0;
+}
+.ai-vis-questions__list {
+  display: flex; flex-direction: column;
+  list-style: none; padding: 0; margin: 0;
+}
+.ai-vis-questions__list li {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 16px; padding: 24px 0;
+  border-top: 1px solid rgba(0,70,74,0.10);
+}
+.ai-vis-questions__list li:last-child { border-bottom: 1px solid rgba(0,70,74,0.10); }
+.ai-vis-questions__num {
+  font-family: var(--avq-font-mono);
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--avq-secondary);
+  padding-top: 4px;
+}
+.ai-vis-questions__q {
+  font-family: var(--avq-font-display);
+  font-weight: 400; font-size: 22px; line-height: 30px;
+  color: var(--avq-primary); letter-spacing: -0.01em;
+  margin: 0; text-wrap: pretty;
+}
+</style>
+
+<div class="ai-vis-questions">
+  <p class="ai-vis-questions__eyebrow">FIVE PRACTICAL QUESTIONS</p>
+  <ul class="ai-vis-questions__list">
+    <li>
+      <span class="ai-vis-questions__num">Q_01</span>
+      <p class="ai-vis-questions__q">Can AI engines find you when buyers ask about your market?</p>
+    </li>
+    <li>
+      <span class="ai-vis-questions__num">Q_02</span>
+      <p class="ai-vis-questions__q">Can they explain what you do accurately?</p>
+    </li>
+    <li>
+      <span class="ai-vis-questions__num">Q_03</span>
+      <p class="ai-vis-questions__q">Do they find enough proof to treat you as credible?</p>
+    </li>
+    <li>
+      <span class="ai-vis-questions__num">Q_04</span>
+      <p class="ai-vis-questions__q">Can AI-powered browsers and agents work with your site?</p>
+    </li>
+    <li>
+      <span class="ai-vis-questions__num">Q_05</span>
+      <p class="ai-vis-questions__q">Can your content be cited or used as evidence in an answer?</p>
+    </li>
+  </ul>
+</div>

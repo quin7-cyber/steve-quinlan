@@ -1,0 +1,228 @@
+<!--
+  AI Visibility Scorecard — Pricing card
+  =======================================
+  Drop this entire snippet into a Squarespace Code Block placed
+  full-width in Section 11 (Price & scope).
+
+  This is a SELF-CONTAINED editorial card with its own mint
+  background, eyebrow, rule, headline, copy, hero £2,500 price,
+  CTA button, and Included / Not included columns. Because it
+  carries its own internal hierarchy on a single mint surface,
+  build no native Squarespace blocks above or below for this
+  section — the snippet is the section.
+
+  IMPORTANT — UPDATE THE CTA LINK
+  The "Book a 15-minute fit call" button is an <a> tag with
+  href="#" by default. Change href="#" to your booking URL
+  (Calendly, Cal.com, your contact page, etc.) so the button
+  actually goes somewhere when clicked.
+
+  Layout collapses to a single column under 1080px.
+
+  No JavaScript. All CSS scoped to .ai-vis-pricing so it cannot
+  leak into the rest of the site.
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,200..300&family=DM+Sans:opsz,wght@9..40,400..500&family=JetBrains+Mono:wght@400&display=swap");
+
+.ai-vis-pricing {
+  --avb-primary: #00464a;
+  --avb-primary-container: #006064;
+  --avb-on-primary: #ffffff;
+  --avb-secondary: #29695b;
+  --avb-secondary-container: #acedda;
+  --avb-font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --avb-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --avb-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.ai-vis-pricing *, .ai-vis-pricing *::before, .ai-vis-pricing *::after { box-sizing: border-box; }
+.ai-vis-pricing p, .ai-vis-pricing h2, .ai-vis-pricing h4, .ai-vis-pricing ul { margin: 0; }
+
+.ai-vis-pricing__card {
+  background: var(--avb-secondary-container);
+  border-radius: 12px;
+  padding: 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 96px;
+}
+
+.ai-vis-pricing__head {
+  position: relative;
+  display: flex; flex-direction: column; gap: 24px;
+}
+.ai-vis-pricing__eyebrow {
+  font-family: var(--avb-font-mono);
+  font-size: 12px; line-height: 16px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--avb-secondary);
+}
+.ai-vis-pricing__rule {
+  width: 48px; height: 1px;
+  background: var(--avb-primary);
+  border: 0; margin: 0;
+}
+.ai-vis-pricing__title {
+  font-family: var(--avb-font-display);
+  font-weight: 400; font-size: 56px; line-height: 60px;
+  color: var(--avb-primary);
+  letter-spacing: -0.02em;
+}
+.ai-vis-pricing__title em { font-style: italic; font-weight: 300; }
+.ai-vis-pricing__lead {
+  font-family: var(--avb-font-body);
+  font-size: 17px; line-height: 28px;
+  color: var(--avb-primary);
+  opacity: 0.78;
+}
+
+.ai-vis-pricing__big {
+  margin-top: 24px;
+  display: flex; align-items: baseline; gap: 24px;
+  flex-wrap: wrap;
+}
+.ai-vis-pricing__big-num {
+  font-family: var(--avb-font-display);
+  font-weight: 400; font-size: 96px; line-height: 96px;
+  color: var(--avb-primary);
+  letter-spacing: -0.03em;
+}
+.ai-vis-pricing__big-meta {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.ai-vis-pricing__big-meta span:first-child {
+  font-family: var(--avb-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avb-secondary);
+  text-transform: uppercase;
+}
+.ai-vis-pricing__big-meta span:last-child {
+  font-family: var(--avb-font-body);
+  font-weight: 500; font-size: 14px;
+  color: var(--avb-primary);
+}
+
+.ai-vis-pricing__cta {
+  margin-top: 24px;
+  display: flex; gap: 20px;
+}
+.ai-vis-pricing__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--avb-font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, var(--avb-primary) 0%, var(--avb-primary-container) 100%);
+  color: var(--avb-on-primary);
+  text-decoration: none;
+  box-shadow: 0 1px 2px 0 rgba(27,29,14,0.05);
+  transition: filter 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ai-vis-pricing__btn:hover { filter: brightness(1.08); }
+
+.ai-vis-pricing__cols {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.ai-vis-pricing__col h4 {
+  font-family: var(--avb-font-mono);
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--avb-secondary);
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0,70,74,0.20);
+}
+.ai-vis-pricing__col ul {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ai-vis-pricing__col li {
+  font-family: var(--avb-font-body);
+  font-size: 14px; line-height: 22px;
+  color: var(--avb-primary);
+}
+.ai-vis-pricing__col--out li {
+  color: var(--avb-primary);
+  opacity: 0.55;
+  text-decoration: line-through;
+  text-decoration-color: rgba(0,70,74,0.30);
+}
+
+@media (max-width: 1080px) {
+  .ai-vis-pricing__card { grid-template-columns: 1fr; gap: 48px; padding: 56px 32px; }
+  .ai-vis-pricing__cols { grid-template-columns: 1fr; }
+  .ai-vis-pricing__big-num { font-size: clamp(44px, 11vw, 72px); line-height: 1; }
+  .ai-vis-pricing__title { font-size: clamp(30px, 7vw, 44px); line-height: 1.1; }
+}
+
+@media (max-width: 600px) {
+  .ai-vis-pricing__card { padding: 40px 24px; }
+  .ai-vis-pricing__big {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+</style>
+
+<div class="ai-vis-pricing">
+  <div class="ai-vis-pricing__card">
+
+    <div class="ai-vis-pricing__head">
+      <p class="ai-vis-pricing__eyebrow">SECTION 11 // PRICE &amp; SCOPE</p>
+      <hr class="ai-vis-pricing__rule" />
+      <h2 class="ai-vis-pricing__title">Fixed scope.<br/><em>Ten working days.</em></h2>
+      <p class="ai-vis-pricing__lead">The next step is a 15-minute call to check your situation, your site, and whether there is enough evidence to review.</p>
+      <div class="ai-vis-pricing__big">
+        <div class="ai-vis-pricing__big-num">£2,500</div>
+        <div class="ai-vis-pricing__big-meta">
+          <span>FIXED FEE / EX VAT</span>
+          <span>One project. One artefact. One decision.</span>
+        </div>
+      </div>
+      <div class="ai-vis-pricing__cta">
+        <a class="ai-vis-pricing__btn" href="https://www.steve-quinlan.com/contact">
+          Book a 15-minute fit call
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M9.131 6.75H0v-1.5h9.131L4.931 1.05 6 0l6 6-6 6-1.069-1.05z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="ai-vis-pricing__cols">
+      <div class="ai-vis-pricing__col">
+        <h4>Included</h4>
+        <ul>
+          <li>A fit call before we begin</li>
+          <li>Intake and competitor selection</li>
+          <li>Live AI-engine testing — ChatGPT, Perplexity, Gemini</li>
+          <li>Review of 10–20 key pages</li>
+          <li>Scoring across the five Scorecard dimensions</li>
+          <li>Competitor comparison against three named firms</li>
+          <li>Prioritised recommendations (value, effort, confidence, urgency)</li>
+          <li>A 90-day priority view</li>
+          <li>A delivery call to walk through the findings</li>
+        </ul>
+      </div>
+      <div class="ai-vis-pricing__col ai-vis-pricing__col--out">
+        <h4>Not included</h4>
+        <ul>
+          <li>Implementation of the recommendations</li>
+          <li>Ongoing SEO or content production</li>
+          <li>Paid media management</li>
+          <li>General AI training</li>
+          <li>Custom AI tool development</li>
+          <li>Long-term monitoring or retainer</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,459 @@
+/* ============================================================
+   STEVE QUINLAN — DESIGN SYSTEM
+   "The Technical Curator" — Assertive Editorial
+   ============================================================ */
+
+/* Webfonts (Newsreader + Space Grotesk + JetBrains Mono substituting for
+   Liberation Mono — flag this to the user). */
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=DM+Sans:opsz,wght@9..40,300..600&family=JetBrains+Mono:wght@400;700&display=swap");
+
+:root {
+  /* ---------- COLOR — RAW PALETTE ---------- */
+  /* Primary (deep teal — authority, ink) */
+  --primary:               #00464a;     /* rgb(0,70,74) */
+  --primary-container:     #006064;     /* rgb(0,96,100) — used in CTA gradient */
+  --on-primary:            #ffffff;
+  --on-primary-muted:      #8fd8dc;     /* rgb(143,216,220) — muted accent text on dark */
+
+  /* Secondary (mossy teal — technical accents, success) */
+  --secondary:             #29695b;     /* rgb(41,105,91) */
+  --secondary-text:        #2e6d5f;     /* rgb(46,109,95) — letter-spaced caption on tags */
+  --secondary-container:   #acedda;     /* rgb(172,237,218) — editorial quote / soft accent */
+  --on-secondary-container:#00464a;
+
+  /* Surface — warm paper-cream stack */
+  --surface:                 #fbfbe2;   /* rgb(251,251,226) — base canvas */
+  --surface-container-low:   #f5f5dc;   /* rgb(245,245,220) — sections */
+  --surface-container:       #eaead1;   /* rgb(234,234,209) — bento backdrop */
+  --surface-container-high:  #e4e4cc;   /* rgb(228,228,204) — secondary buttons */
+  --surface-container-highest: #d8d8c0; /* slightly darker for active states */
+  --surface-container-lowest:#ffffff;   /* pure white — only most elevated cards */
+
+  /* On-surface (text) */
+  --on-surface:            #1b1d0e;     /* near-black ink */
+  --on-surface-variant:    #3f4949;     /* rgb(63,73,73) — body copy */
+  --on-surface-muted:      #29695b;     /* mono / metadata text */
+
+  /* Outline (dotted use only — never solid 1px borders for sectioning) */
+  --outline:               #8fd8dc;
+  --outline-variant:       #bec8c9;     /* rgb(190,200,201) */
+
+  /* Shadow / glow tokens */
+  --shadow-ambient:        rgba(27, 29, 14, 0.05);   /* on-surface @ 5% */
+  --shadow-card:           rgba(0, 0, 0, 0.10);
+  --shadow-portrait:       rgba(0, 0, 0, 0.25);
+
+  /* Glassmorphism */
+  --glass-surface:         rgba(251, 251, 226, 0.80);
+  --glass-blur:            12px;
+
+  /* ---------- TYPE — FAMILIES ---------- */
+  --font-display: "Newsreader", "Times New Roman", Georgia, serif;
+  --font-body:    "DM Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    "JetBrains Mono", "Liberation Mono", "SF Mono", Menlo, monospace;
+
+  /* ---------- TYPE — SCALE (matches figma usage) ---------- */
+  --display-xl-size:      128px;   --display-xl-lh:      128px;
+  --display-lg-size:      96px;    --display-lg-lh:      96px;
+  --display-md-size:      60px;    --display-md-lh:      60px;
+  --display-sm-size:      48px;    --display-sm-lh:      48px;
+
+  --headline-lg-size:     30px;    --headline-lg-lh:     36px;
+  --headline-md-size:     24px;    --headline-md-lh:     32px;
+  --headline-sm-size:     20px;    --headline-sm-lh:     28px;
+
+  --title-lg-size:        20px;    --title-lg-lh:        28px;
+  --title-md-size:        18px;    --title-md-lh:        28px;
+  --title-sm-size:        16px;    --title-sm-lh:        26px;
+
+  --body-lg-size:         18px;    --body-lg-lh:         28px;
+  --body-md-size:         16px;    --body-md-lh:         26px;
+  --body-sm-size:         14px;    --body-sm-lh:         22px;
+
+  --label-lg-size:        14px;    --label-lg-lh:        20px;
+  --label-md-size:        12px;    --label-md-lh:        16px;
+  --label-sm-size:        11px;    --label-sm-lh:        14px;
+
+  /* Letter-spacing — display tighter, mono captions wider */
+  --tracking-display:     -0.02em;
+  --tracking-tight:       -0.01em;
+  --tracking-normal:      0;
+  --tracking-wide:        0.10em;     /* ~1.4px @ 14px — used on metadata captions */
+  --tracking-mono:        -0.05em;    /* slight tightening on small mono labels */
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-1:  0.25rem;     /*  4px */
+  --space-2:  0.5rem;      /*  8px */
+  --space-3:  0.75rem;     /* 12px */
+  --space-4:  1rem;        /* 16px */
+  --space-6:  1.5rem;      /* 24px */
+  --space-8:  2rem;        /* 32px */
+  --space-12: 3rem;        /* 48px */
+  --space-16: 4rem;        /* 64px */
+  --space-24: 6rem;        /* 96px */
+  --space-32: 8rem;        /*128px */
+
+  /* ---------- RADII ---------- */
+  --radius-sm:  2px;       /* mini tags */
+  --radius-md:  6px;       /* buttons */
+  --radius-lg:  8px;       /* cards, sections */
+  --radius-xl:  12px;      /* large editorial blocks */
+
+  /* ---------- ELEVATION ---------- */
+  --elev-glow:    0 8px 32px var(--shadow-ambient);
+  --elev-card:    0 4px 6px -4px var(--shadow-card),
+                  0 10px 15px -3px var(--shadow-card);
+  --elev-portrait: 0 25px 50px -12px var(--shadow-portrait);
+
+  /* ---------- MOTION ---------- */
+  --ease-curator: cubic-bezier(0.32, 0.08, 0.24, 1);   /* slow, considered */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast:     180ms;
+  --dur-base:     240ms;
+  --dur-slow:     420ms;
+
+  /* ---------- GRADIENTS ---------- */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  --gradient-noise:   radial-gradient(rgb(190,200,201) 2%, rgba(190,200,201,0) 2%);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Reset-light. Use these on plain HTML or via the .ed- utility classes.
+   ============================================================ */
+
+html, body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-lh);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- HEADINGS — Newsreader ExtraLight, italic for the Statement ---------- */
+h1, .ed-display-lg {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-lg-size);
+  line-height: var(--display-lg-lh);
+  letter-spacing: var(--tracking-display);
+  color: var(--primary);
+  margin: 0;
+}
+
+h2, .ed-display-sm {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-sm-size);
+  line-height: var(--display-sm-lh);
+  letter-spacing: var(--tracking-display);
+  color: var(--primary);
+  margin: 0;
+}
+
+h3, .ed-headline-lg {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--headline-lg-size);
+  line-height: var(--headline-lg-lh);
+  letter-spacing: var(--tracking-tight);
+  color: var(--primary);
+  margin: 0;
+}
+
+h4, .ed-headline-md {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-lh);
+  color: var(--primary);
+  margin: 0;
+}
+
+.ed-statement {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-style: italic;
+  font-size: var(--display-sm-size);
+  line-height: var(--display-sm-lh);
+  color: var(--primary);
+}
+
+/* ---------- BODY ---------- */
+p, .ed-body-md {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-lh);
+  color: var(--on-surface-variant);
+  margin: 0;
+  text-wrap: pretty;
+}
+.ed-body-lg {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-lh);
+  color: var(--on-surface-variant);
+}
+.ed-body-sm {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--body-sm-size);
+  line-height: var(--body-sm-lh);
+  color: var(--on-surface-variant);
+}
+
+/* ---------- LABELS / METADATA ---------- */
+.ed-label-lg {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--label-lg-size);
+  line-height: var(--label-lg-lh);
+  letter-spacing: var(--tracking-wide);
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+.ed-label-md {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-lh);
+  letter-spacing: 0.10em;
+  color: var(--secondary);
+}
+.ed-mono-md {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-lh);
+  letter-spacing: var(--tracking-mono);
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+.ed-mono-lg {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--label-lg-size);
+  line-height: var(--label-lg-lh);
+  color: var(--secondary);
+}
+
+/* ---------- LINKS — primary + 1px underline, never blue ---------- */
+a, .ed-link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: currentColor;
+  transition: color var(--dur-fast) var(--ease-out),
+              text-decoration-color var(--dur-fast) var(--ease-out);
+}
+a:hover, .ed-link:hover {
+  color: var(--secondary);
+}
+
+/* ---------- "Editorial Quote" signature surface ---------- */
+.ed-quote-block {
+  background: var(--secondary-container);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16);
+  color: var(--primary);
+}
+.ed-quote-block .ed-quote-text {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-style: italic;
+  font-size: var(--display-sm-size);
+  line-height: var(--display-sm-lh);
+  color: var(--primary);
+}
+
+/* ---------- BUTTONS ---------- */
+.ed-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--label-lg-size);
+  line-height: var(--label-lg-lh);
+  letter-spacing: 0.01em;
+  transition: filter var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.ed-btn-primary {
+  background: var(--gradient-primary);
+  color: var(--on-primary);
+  box-shadow: 0 1px 2px 0 var(--shadow-ambient);
+}
+.ed-btn-primary:hover { filter: brightness(1.08); }
+.ed-btn-primary:active { transform: translateY(1px); }
+
+.ed-btn-secondary {
+  background: var(--surface-container-high);
+  color: var(--primary);
+}
+.ed-btn-secondary:hover { background: var(--surface-container-highest); }
+
+.ed-btn-tertiary {
+  background: transparent;
+  color: var(--primary);
+  padding: var(--space-2) var(--space-3);
+}
+.ed-btn-tertiary:hover { background: var(--surface-container-low); }
+
+.ed-btn-on-dark-fill {
+  background: var(--secondary-container);
+  color: var(--primary);
+}
+.ed-btn-on-dark-outline {
+  background: transparent;
+  color: var(--on-primary);
+  border: 1px solid var(--on-primary-muted);
+}
+.ed-btn-on-dark-outline:hover { background: rgba(255,255,255,0.05); }
+
+/* ---------- TAGS ---------- */
+.ed-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  background: var(--surface-container);
+  font-family: var(--font-mono);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-lh);
+  color: var(--secondary);
+  letter-spacing: var(--tracking-mono);
+}
+.ed-tag-square {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--secondary-container);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-lh);
+  color: var(--secondary-text);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* ---------- CARDS ---------- */
+.ed-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12);
+}
+.ed-card-elevated {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12);
+}
+.ed-card-dark {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+.ed-card-dark::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--gradient-noise);
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+/* ---------- INPUT FIELDS ---------- */
+.ed-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ed-input label {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--label-md-size);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.ed-input input,
+.ed-input textarea {
+  background: var(--surface-container);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--body-md-size);
+  color: var(--on-surface);
+  border-radius: 4px 4px 0 0;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.ed-input input:focus,
+.ed-input textarea:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+/* ---------- DIVIDER (Editorial: short rule, never a full-width line) ---------- */
+.ed-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--primary);
+  border: 0;
+  margin: 0;
+}
+.ed-rule-on-dark {
+  width: 64px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  margin: 0;
+}
+
+/* ---------- GLASS PANEL ---------- */
+.ed-glass {
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(190, 200, 201, 0.15);
+}
+
+/* ---------- SECTION SURFACES ---------- */
+.ed-section-base       { background: var(--surface); }
+.ed-section-low        { background: var(--surface-container-low); }
+.ed-section-dark       {
+  background: var(--primary);
+  color: var(--on-primary);
+  position: relative;
+  overflow: hidden;
+}
+.ed-section-dark::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--gradient-noise);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+::selection {
+  background: var(--secondary-container);
+  color: var(--primary);
+}
